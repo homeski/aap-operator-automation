@@ -1,0 +1,13 @@
+---
+- name: Create ~/.ssh directory
+  ansible.builtin.file:
+    path: ~/.ssh
+    state: directory
+    mode: '0755'
+
+- name: Copy ~/.ssh/id_rsa
+  ansible.builtin.copy:
+    content: "{{ ssh_keygen_key }}"
+    dest: ~/.ssh/id_rsa
+    mode: '0600'
+...

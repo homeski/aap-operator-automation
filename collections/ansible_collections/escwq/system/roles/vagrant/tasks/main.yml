@@ -1,0 +1,21 @@
+---
+- tags:
+    - vagrant
+  become: true
+  block:
+    - name: Add Hashicorp repository
+      ansible.builtin.yum_repository:
+        name: hashicorp
+        description: Hashicorp Stable - $basearch
+        baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+        enabled: true
+        gpgcheck: true
+        gpgkey: https://rpm.releases.hashicorp.com/gpg
+
+    - name: Install Vagrant
+      ansible.builtin.dnf:
+        name:
+          - vagrant
+          - vagrant-libvirt
+        state: installed
+...

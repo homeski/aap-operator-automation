@@ -1,0 +1,10 @@
+.vault_secret
+__pycache__
+setup.log
+*.tar.gz
+scratchpad/*
+venv/
+collections/ansible_collections/*
+!collections/ansible_collections/escwq
+builder/context/
+.vagrant/

@@ -1,0 +1,54 @@
+---
+namespace: aap-25
+name_gateway: myaap-gateway
+name_controller: myaap-controller
+name_eda: ""
+name_hub: ""
+
+ansibleautomationplatform:
+  spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
+    database:
+      database_secret: "{{ name_gateway }}-postgres-configuration"
+    db_fields_encryption_secret: "{{ name_controller }}-secret-key"
+    controller:
+      disabled: false
+      name: "{{ name_controller }}"
+
+automationcontroller:
+  spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
+    secret_key_secret: "{{ name_controller }}-secret-key"
+
+eda: {}
+
+hub: {}
+
+secrets:
+  - name: "{{ name_gateway }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5415
+      database: gateway
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_controller }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5415
+      database: postgres
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_controller }}-admin-password"
+    data:
+      password: foobar
+
+  - name: "{{ name_controller }}-secret-key"
+    data:
+      secret_key: encryptionkey

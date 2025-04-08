@@ -1,0 +1,15 @@
+---
+- tags:
+    - podman
+  become: true
+  block:
+    - name: Install Podman
+      ansible.builtin.dnf:
+        name: podman
+        state: installed
+
+    - name: Enable Podman
+      ansible.builtin.service:
+        name: podman
+        enabled: true
+...

@@ -1,0 +1,23 @@
+---
+ansible-navigator:
+  ansible:
+    inventory:
+      entries:
+        - ./inventory/kustomize/hosts.ini
+
+  execution-environment:
+    environment-variables:
+      set:
+        ANSIBLE_VAULT_PASSWORD_FILE: .vault_secret
+    image: registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel8:latest
+    pull:
+      policy: missing
+
+  logging:
+    file: /tmp/ansible-navigator.log
+
+  mode: stdout
+
+  playbook-artifact:
+    enable: false
+...

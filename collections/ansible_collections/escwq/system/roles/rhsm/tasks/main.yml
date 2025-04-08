@@ -1,0 +1,17 @@
+---
+- tags:
+    - rhsm
+  become: true
+  block:
+    - name: Subscribe all hosts
+      community.general.redhat_subscription:
+        state: present
+        username: "{{ rhsm_username }}"
+        password: "{{ rhsm_password }}"
+
+    - name: Enable RHSM repositories
+      community.general.rhsm_repository:
+        name: "{{ rhsm_repositories }}"
+        state: enabled
+        purge: true
+...
