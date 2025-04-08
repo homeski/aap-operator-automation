@@ -1,5 +1,0 @@
----
-- name: Install yum packages
-  ansible.builtin.yum:
-    name: "{{ os_packages }}"
-    state: present
