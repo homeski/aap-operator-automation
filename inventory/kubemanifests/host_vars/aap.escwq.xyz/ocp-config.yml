@@ -8,21 +8,19 @@ name_hub: ""
 ansibleautomationplatform:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
-    database:
-      database_secret: "{{ name_gateway }}-postgres-configuration"
-    db_fields_encryption_secret: "{{ name_controller }}-secret-key"
     controller:
       disabled: false
       name: "{{ name_controller }}"
+    database:
+      database_secret: "{{ name_gateway }}-postgres-configuration"
+    db_fields_encryption_secret: "{{ name_controller }}-secret-key"
+    route_host: aap.escwq.xyz
 
 automationcontroller:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
+    postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
     secret_key_secret: "{{ name_controller }}-secret-key"
-
-eda: {}
-
-hub: {}
 
 secrets:
   - name: "{{ name_gateway }}-postgres-configuration"

@@ -1,9 +1,8 @@
----
 apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
-  name: {{ name_controller }}
-  namespace: {{ namespace }}
+  name: aap-controller
+  namespace: aap-24
 spec:
   admin_user: admin
   auto_upgrade: false
@@ -20,10 +19,10 @@ spec:
   metrics_utility_enabled: false
   metrics_utility_pvc_claim_size: 5Gi
   no_log: true
+  postgres_keepalives: true
   postgres_keepalives_count: 5
   postgres_keepalives_idle: 5
   postgres_keepalives_interval: 5
-  postgres_keepalives: true
   postgres_storage_class: lvms-vg1
   projects_persistence: false
   projects_storage_access_mode: ReadWriteMany

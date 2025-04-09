@@ -1,0 +1,11 @@
+---
+namespace: aap-24
+name_gateway: ""
+name_controller: aap-controller
+name_eda: ""
+name_hub: ""
+
+automationcontroller:
+  spec: {}
+
+secrets: []

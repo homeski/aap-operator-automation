@@ -16,3 +16,4 @@ spec:
   hub:
     disabled: true
   no_log: true
+  route_host: aap.escwq.xyz
