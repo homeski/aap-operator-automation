@@ -6,7 +6,7 @@ controller_templates:
     playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true
 
-  - name: generate_kubemanifests-other
+  - name: myotherplaybook
     inventory: blah
     project: aap-operator-automation-other
     playbook: playbooks/generate_kubemanifests.yml

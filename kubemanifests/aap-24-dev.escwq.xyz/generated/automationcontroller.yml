@@ -1,10 +1,10 @@
 apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
-  name: aap-controller
+  name: aap-24-dev
   namespace: aap-24-dev
 spec:
-  admin_password_secret: aap-controller-admin-password
+  admin_password_secret: aap-24-dev-admin-password
   admin_user: admin
   auto_upgrade: false
   create_preload_data: false

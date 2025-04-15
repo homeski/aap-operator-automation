@@ -1,7 +1,7 @@
 ---
 namespace: aap-24-dev
 name_gateway: ""
-name_controller: aap-controller
+name_controller: aap-24-dev
 name_eda: ""
 name_hub: ""
 

@@ -2,4 +2,6 @@
 controller_hostname: https://aap-24-prod.escwq.xyz
 controller_username: admin
 controller_password: foobar
+controller_token: qBpY6TNfZJdKHResjphGoNSVy8PSkS
+controller_pod: aap-controller-web-6cf6d4f647-fs4pk
 controller_validate_certs: false

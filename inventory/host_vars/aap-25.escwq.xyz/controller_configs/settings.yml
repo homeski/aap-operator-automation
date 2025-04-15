@@ -10,9 +10,10 @@ controller_settings:
       - system_tracking
       - broadcast_websocket
       - job_lifecycle
-    LOG_AGGREGATOR_PASSWORD: 3d521fad-df51-4902-a8bc-57006e7523f3
+    LOG_AGGREGATOR_PASSWORD: 5de9f319-b533-4010-9179-319a56b5b572
     LOG_AGGREGATOR_PORT: 8088
     LOG_AGGREGATOR_PROTOCOL: https
     LOG_AGGREGATOR_TYPE: splunk
     LOG_AGGREGATOR_USERNAME: ""
     LOG_AGGREGATOR_VERIFY_CERT: false
+    LOG_AGGREGATOR_TOWER_UUID: aap-25

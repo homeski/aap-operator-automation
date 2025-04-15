@@ -1,7 +1,7 @@
 ---
 namespace: aap-24-prod
 name_gateway: ""
-name_controller: aap-controller
+name_controller: aap-24-prod
 name_eda: ""
 name_hub: ""
 
