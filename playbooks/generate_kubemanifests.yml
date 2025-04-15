@@ -8,3 +8,6 @@
         name: escwq.kubemanifests.template
       delegate_to: localhost
       when: namespace is defined
+
+    - name: Fail
+      ansible.builtin.fail:
