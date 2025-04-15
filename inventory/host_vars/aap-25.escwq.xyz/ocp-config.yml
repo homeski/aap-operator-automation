@@ -14,7 +14,7 @@ ansibleautomationplatform:
     database:
       database_secret: "{{ name_gateway }}-postgres-configuration"
     db_fields_encryption_secret: "{{ name_controller }}-secret-key"
-    route_host: aap.escwq.xyz
+    route_host: aap-25.escwq.xyz
 
 automationcontroller:
   spec:

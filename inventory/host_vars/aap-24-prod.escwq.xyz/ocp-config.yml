@@ -1,0 +1,12 @@
+---
+namespace: aap-24-prod
+name_gateway: ""
+name_controller: aap-controller
+name_eda: ""
+name_hub: ""
+
+automationcontroller:
+  spec:
+    route_host: aap-24-prod.escwq.xyz
+
+secrets: []

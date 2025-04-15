@@ -3,7 +3,7 @@ ansible-navigator:
   ansible:
     inventory:
       entries:
-        - ./inventory/kubemanifests/hosts.ini
+        - ./inventory/hosts.ini
 
   execution-environment:
     image: registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel8:latest

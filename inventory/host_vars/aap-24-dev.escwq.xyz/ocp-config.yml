@@ -1,11 +1,12 @@
 ---
-namespace: aap-24
+namespace: aap-24-dev
 name_gateway: ""
 name_controller: aap-controller
 name_eda: ""
 name_hub: ""
 
 automationcontroller:
-  spec: {}
+  spec:
+    route_host: aap-24-dev.escwq.xyz
 
 secrets: []

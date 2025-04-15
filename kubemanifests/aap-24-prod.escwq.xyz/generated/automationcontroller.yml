@@ -2,7 +2,7 @@ apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
   name: aap-controller
-  namespace: aap-24
+  namespace: aap-24-prod
 spec:
   admin_user: admin
   auto_upgrade: false
@@ -28,6 +28,7 @@ spec:
   projects_storage_access_mode: ReadWriteMany
   projects_storage_size: 8Gi
   replicas: 1
+  route_host: aap-24-prod.escwq.xyz
   route_tls_termination_mechanism: Edge
   set_self_labels: true
   task_privileged: false
