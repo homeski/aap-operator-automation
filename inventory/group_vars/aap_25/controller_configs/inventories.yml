@@ -2,3 +2,6 @@
 controller_inventories:
   - name: aap_deployments
     organization: Default
+
+  - name: otherorg_inventory
+    organization: OtherOrg

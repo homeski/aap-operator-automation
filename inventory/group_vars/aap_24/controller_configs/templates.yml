@@ -3,5 +3,5 @@ controller_templates:
   - name: generate_kubemanifests
     inventory: aap_deployments
     project: aap-operator-automation
-    playbook: playbooks/generate-kubemanifests.yml
+    playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true

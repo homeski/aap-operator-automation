@@ -5,3 +5,9 @@ controller_projects:
     scm_type: git
     scm_url: https://github.com/homeski/aap-operator-automation.git
     scm_branch: main
+
+  - name: otherorg_project
+    organization: OtherOrg
+    scm_type: git
+    scm_url: https://github.com/homeski/aap-operator-automation.git
+    scm_branch: main
