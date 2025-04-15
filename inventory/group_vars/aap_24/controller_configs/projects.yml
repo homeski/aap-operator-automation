@@ -1,0 +1,7 @@
+---
+controller_projects:
+  - name: aap-operator-automation
+    organization: Default
+    scm_type: git
+    scm_url: https://github.com/homeski/aap-operator-automation.git
+    scm_branch: main

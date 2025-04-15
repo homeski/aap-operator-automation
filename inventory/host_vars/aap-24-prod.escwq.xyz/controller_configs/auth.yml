@@ -1,0 +1,5 @@
+---
+controller_hostname: https://aap-24-prod.escwq.xyz
+controller_username: admin
+controller_password: foobar
+controller_validate_certs: false

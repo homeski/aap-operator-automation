@@ -1,0 +1,17 @@
+---
+controller_settings:
+  settings:
+    LOG_AGGREGATOR_ENABLED: true
+    LOG_AGGREGATOR_HOST: https://192.168.1.58/services/collector/event
+    LOG_AGGREGATOR_LOGGERS:
+      - awx
+      - activity_stream
+      - job_events
+      - system_tracking
+      - broadcast_websocketg
+    LOG_AGGREGATOR_PASSWORD: a2df2ca6-0aa7-489f-befb-6429cee56ae1
+    LOG_AGGREGATOR_PORT: 8088
+    LOG_AGGREGATOR_PROTOCOL: https
+    LOG_AGGREGATOR_TYPE: splunk
+    LOG_AGGREGATOR_USERNAME: ""
+    LOG_AGGREGATOR_VERIFY_CERT: false

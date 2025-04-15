@@ -1,0 +1,5 @@
+---
+aap_hostname: https://aap-25.escwq.xyz
+aap_username: admin
+aap_password: foobar
+aap_validate_certs: false

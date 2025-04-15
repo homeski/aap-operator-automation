@@ -1,0 +1,9 @@
+---
+- name: Apply Config as Code
+  hosts: all
+  gather_facts: false
+  tasks:
+    - name: Call dispatch role
+      ansible.builtin.import_role:
+        name: infra.controller_configuration.dispatch
+      delegate_to: localhost

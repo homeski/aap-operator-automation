@@ -7,6 +7,10 @@ name_hub: ""
 
 automationcontroller:
   spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
     route_host: aap-24-prod.escwq.xyz
 
-secrets: []
+secrets:
+  - name: "{{ name_controller }}-admin-password"
+    data:
+      password: foobar
