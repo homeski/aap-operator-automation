@@ -3,5 +3,8 @@ controller_inventories:
   - name: aap_deployments
     organization: Default
 
-  - name: blah
+  - name: "blah: the blah"
+    organization: Default
+
+  - name: "blah: the blah"
     organization: AAP24OtherOrg-dev

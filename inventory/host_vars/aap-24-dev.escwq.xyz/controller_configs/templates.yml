@@ -7,7 +7,8 @@ controller_templates:
     allow_simultaneous: true
 
   - name: myotherplaybook
-    inventory: blah
+    organization: AAP24OtherOrg-dev
+    inventory: "blah%3A the_blah++AAP24OtherOrg-dev"
     project: aap-operator-automation-other
     playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true
