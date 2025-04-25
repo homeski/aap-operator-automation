@@ -1,3 +1,0 @@
----
-template_dir: "../kubemanifests/{{ inventory_hostname }}/generated"
-template_empty: false
