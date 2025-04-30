@@ -14,6 +14,7 @@ spec:
   eda:
     disabled: true
   hub:
-    disabled: true
+    disabled: false
+    name: myaap-hub
   no_log: true
   route_host: aap-25.escwq.xyz

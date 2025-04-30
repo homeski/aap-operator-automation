@@ -1,16 +1,25 @@
 ---
 namespace: aap-24-dev
 name_gateway: ""
-name_controller: aap-24-dev
+name_controller: controller-dev
 name_eda: ""
-name_hub: ""
+name_hub: hub-dev
 
 automationcontroller:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
-    route_host: aap-24-dev.escwq.xyz
+    route_host: controller-dev.escwq.xyz
+
+automationhub:
+  spec:
+    admin_password_secret: "{{ name_hub }}-admin-password"
+    route_host: hub-dev.escwq.xyz
 
 secrets:
   - name: "{{ name_controller }}-admin-password"
     data:
       password: foobar
+
+  - name: "{{ name_hub }}-admin-password"
+    data:
+      password: foobar2

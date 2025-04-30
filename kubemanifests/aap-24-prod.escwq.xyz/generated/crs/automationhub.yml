@@ -1,10 +1,10 @@
 apiVersion: automationhub.ansible.com/v1beta1
 kind: AutomationHub
 metadata:
-  name: hub-dev
-  namespace: aap-24-dev
+  name: hub-prod
+  namespace: aap-24-prod
 spec:
-  admin_password_secret: hub-dev-admin-password
+  admin_password_secret: hub-prod-admin-password
   api:
     log_level: INFO
     replicas: 1
@@ -28,6 +28,7 @@ spec:
   nginx_proxy_read_timeout: 120s
   nginx_proxy_send_timeout: 120s
   no_log: true
+  postgres_configuration_secret: hub-prod-prod-postgres-configuration
   postgres_storage_class: lvms-vg1
   redis:
     log_level: INFO
@@ -35,7 +36,7 @@ spec:
   redis_storage_class: lvms-vg1
   resource_manager:
     replicas: 1
-  route_host: hub-dev.escwq.xyz
+  route_host: hub-prod.escwq.xyz
   route_tls_termination_mechanism: Edge
   storage_type: File
   web:
