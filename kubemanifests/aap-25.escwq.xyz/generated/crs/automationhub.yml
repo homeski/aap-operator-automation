@@ -28,7 +28,7 @@ spec:
   nginx_proxy_read_timeout: 120s
   nginx_proxy_send_timeout: 120s
   no_log: true
-  postgres_configuration_secret: myaap-hub-prod-postgres-configuration
+  postgres_configuration_secret: myaap-hub-postgres-configuration
   postgres_storage_class: lvms-vg1
   redis:
     log_level: INFO
