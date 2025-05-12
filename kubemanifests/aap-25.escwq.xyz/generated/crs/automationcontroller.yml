@@ -4,7 +4,6 @@ metadata:
   name: myaap-controller
   namespace: aap-25
 spec:
-  admin_password_secret: myaap-controller-admin-password
   admin_user: admin
   api_urlpattern_prefix: controller
   auto_upgrade: false

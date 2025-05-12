@@ -6,7 +6,6 @@ metadata:
 spec:
   activation_worker:
     replicas: 2
-  admin_password_secret: myaap-eda-admin-password
   admin_user: admin
   api:
     gunicorn_workers: 2

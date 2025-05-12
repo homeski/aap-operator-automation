@@ -4,7 +4,6 @@ metadata:
   name: myaap-hub
   namespace: aap-25
 spec:
-  admin_password_secret: myaap-hub-admin-password
   api:
     log_level: INFO
     replicas: 1
