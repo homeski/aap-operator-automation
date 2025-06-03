@@ -1,10 +1,10 @@
 ---
 collections:
+  - name: aap.platform_on_ocp
   - name: ansible.controller
     version: '>=4.5.0,<4.6.0'
   - name: ansible.eda
   - name: ansible.hub
   - name: ansible.platform
-  - name: escwq.kubemanifests
   - name: infra.aap_configuration
   - name: infra.controller_configuration
