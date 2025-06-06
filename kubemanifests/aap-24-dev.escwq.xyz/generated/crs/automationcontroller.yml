@@ -8,6 +8,9 @@ spec:
   admin_user: admin
   auto_upgrade: false
   create_preload_data: false
+  extra_volumes: "- name: controller-dev-rsyslog-volume\n  configMap:\n    defaultMode:
+    420\n    items:\n      - key: rsyslog.conf\n        path: rsyslog.conf\n    name:
+    controller-dev-rsyslog-configmap\n"
   garbage_collect_secrets: false
   image_pull_policy: IfNotPresent
   ingress_type: Route
@@ -31,5 +34,11 @@ spec:
   replicas: 1
   route_host: controller-dev.escwq.xyz
   route_tls_termination_mechanism: Edge
+  rsyslog_extra_volume_mounts: "- name: controller-dev-rsyslog-volume\n  mountPath:
+    /var/lib/awx/rsyslog/conf.d/custom.conf\n  subPath: rsyslog.conf\n"
   set_self_labels: true
+  task_extra_volume_mounts: "- name: controller-dev-rsyslog-volume\n  mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf\n
+    \ subPath: rsyslog.conf\n"
   task_privileged: false
+  web_extra_volume_mounts: "- name: controller-dev-rsyslog-volume\n  mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf\n
+    \ subPath: rsyslog.conf\n"

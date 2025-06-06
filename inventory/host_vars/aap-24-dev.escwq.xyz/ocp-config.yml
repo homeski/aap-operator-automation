@@ -9,6 +9,26 @@ automationcontroller:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
     route_host: controller-dev.escwq.xyz
+    extra_volumes: |
+      - name: {{ name_controller }}-rsyslog-volume
+        configMap:
+          defaultMode: 420
+          items:
+            - key: rsyslog.conf
+              path: rsyslog.conf
+          name: {{ name_controller }}-rsyslog-configmap
+    rsyslog_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
+    task_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
+    web_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
 
 automationhub:
   spec:
@@ -23,3 +43,9 @@ secrets:
   - name: "{{ name_hub }}-admin-password"
     data:
       password: foobar2
+
+configmaps:
+  - name: "{{ name_controller }}-rsyslog-configmap"
+    data:
+      rsyslog.conf: |
+        $MaxMessageSize 2147483646
