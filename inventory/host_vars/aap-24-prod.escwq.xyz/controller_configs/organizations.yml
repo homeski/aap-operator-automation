@@ -1,4 +1,4 @@
 ---
 controller_organizations:
-- name: Default
-- name: AAP24OtherOrg-prod
+  - name: Default
+  - name: AAP24OtherOrg-prod

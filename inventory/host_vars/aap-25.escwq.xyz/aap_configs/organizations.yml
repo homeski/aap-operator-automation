@@ -1,4 +1,4 @@
 ---
 aap_organizations:
-- name: Default
-- name: OtherOrg
+  - name: Default
+  - name: OtherOrg
