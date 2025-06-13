@@ -1,0 +1,27 @@
+---
+ocp_namespace: aap-mario
+name_gateway: ""
+name_controller: aap-mario
+name_eda: ""
+name_hub: ""
+
+automationcontroller:
+  spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
+    route_host: aap-mario.escwq.xyz
+    postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+
+secrets:
+  - name: "{{ name_controller }}-admin-password"
+    data:
+      password: foobar
+
+  - name: "{{ name_controller }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5416
+      database: controller
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged

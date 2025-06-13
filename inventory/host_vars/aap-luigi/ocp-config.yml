@@ -1,0 +1,76 @@
+---
+######
+# General
+######
+
+ocp_namespace: aap-luigi
+name_gateway: ""
+name_controller: luigi-controller
+name_eda: luigi-eda
+name_hub: luigi-hub
+manage_kubemanifests_validate_certs: false
+
+######
+# CRs
+######
+
+automationcontroller:
+  spec:
+    admin_password_secret: "{{ ocp_namespace }}-admin-password"
+    postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+    route_host: luigi-controller.escwq.xyz
+
+automationhub:
+  spec:
+    admin_password_secret: "{{ ocp_namespace }}-admin-password"
+    postgres_configuration_secret: "{{ name_hub }}-postgres-configuration"
+    route_host: luigi-hub.escwq.xyz
+
+eda:
+  spec:
+    admin_password_secret: "{{ ocp_namespace }}-admin-password"
+    automation_server_url: "{{ automationcontroller.spec.route_host }}"
+    database:
+      database_secret: "{{ name_eda }}-postgres-configuration"
+    route_host: luigi-eda.escwq.xyz
+    service_type: ClusterIP
+    ingress_type: Route
+
+######
+# Secrets
+######
+
+secrets:
+  - name: "{{ ocp_namespace }}-admin-password"
+    data:
+      password: foobar
+
+  - name: "{{ name_controller }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5417
+      database: controller
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_hub }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5417
+      database: hub
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_eda }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5417
+      database: eda
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
