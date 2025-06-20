@@ -4,7 +4,7 @@
 ######
 
 ocp_namespace: aap-luigi
-name_gateway: ""
+name_gateway: luigi-gateway
 name_controller: luigi-controller
 name_eda: luigi-eda
 name_hub: luigi-hub
@@ -18,6 +18,20 @@ automationcontroller:
   spec:
     admin_password_secret: "{{ ocp_namespace }}-admin-password"
     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+    route_host: luigi-controller.escwq.xyz
+
+ansibleautomationplatform:
+  spec:
+    admin_password_secret: "{{ ocp_namespace }}-admin-password"
+    controller:
+      disabled: false
+      name: "{{ name_controller }}"
+    hub:
+      disabled: true
+    eda:
+      disabled: true
+    database:
+      database_secret: "{{ name_gateway }}-postgres-configuration"
     route_host: luigi-controller.escwq.xyz
 
 automationhub:
@@ -50,6 +64,16 @@ secrets:
       host: 192.168.1.58
       port: 5417
       database: controller
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_gateway }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5417
+      database: gateway
       username: postgres
       password: example
       sslmode: prefer

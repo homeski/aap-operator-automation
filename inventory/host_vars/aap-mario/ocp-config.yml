@@ -1,15 +1,30 @@
 ---
 ocp_namespace: aap-mario
-name_gateway: ""
-name_controller: aap-mario
+name_gateway: mario-gateway
+name_controller: mario-controller
 name_eda: ""
 name_hub: ""
+manage_kubemanifests_validate_certs: false
 
 automationcontroller:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
-    route_host: aap-mario.escwq.xyz
+    route_host: mario-controller.escwq.xyz
     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+
+ansibleautomationplatform:
+  spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
+    controller:
+      disabled: false
+      name: "{{ name_controller }}"
+    hub:
+      disabled: true
+    eda:
+      disabled: true
+    database:
+      database_secret: "{{ name_gateway }}-postgres-configuration"
+    route_host: mario-controller.escwq.xyz
 
 secrets:
   - name: "{{ name_controller }}-admin-password"
@@ -21,6 +36,16 @@ secrets:
       host: 192.168.1.58
       port: 5416
       database: controller
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_gateway }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5416
+      database: gateway
       username: postgres
       password: example
       sslmode: prefer

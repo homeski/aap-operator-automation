@@ -3,4 +3,4 @@ controller_hostname: https://aap-24-prod.escwq.xyz
 # controller_username: ""
 # controller_password: ""
 # controller_token: ""
-# controller_validate_certs: true
+controller_validate_certs: false

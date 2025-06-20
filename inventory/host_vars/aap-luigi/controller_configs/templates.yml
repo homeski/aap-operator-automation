@@ -1,0 +1,7 @@
+---
+controller_templates:
+  - name: generate_kubemanifests
+    inventory: hosts.ini
+    project: aap-operator-automation
+    playbook: playbooks/generate_kubemanifests.yml
+    allow_simultaneous: true

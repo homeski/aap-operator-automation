@@ -1,0 +1,18 @@
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: luigi-gateway
+  namespace: aap-luigi
+spec:
+  admin_password_secret: aap-luigi-admin-password
+  controller:
+    disabled: false
+    name: luigi-controller
+  database:
+    database_secret: luigi-gateway-postgres-configuration
+  eda:
+    disabled: true
+  hub:
+    disabled: true
+  no_log: true
+  route_host: luigi-controller.escwq.xyz

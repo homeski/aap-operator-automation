@@ -1,0 +1,18 @@
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: mario-gateway
+  namespace: aap-mario
+spec:
+  admin_password_secret: mario-controller-admin-password
+  controller:
+    disabled: false
+    name: mario-controller
+  database:
+    database_secret: mario-gateway-postgres-configuration
+  eda:
+    disabled: true
+  hub:
+    disabled: true
+  no_log: true
+  route_host: mario-controller.escwq.xyz
