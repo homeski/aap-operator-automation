@@ -2,29 +2,40 @@
 ocp_namespace: aap-mario
 name_gateway: mario-gateway
 name_controller: mario-controller
-name_eda: ""
-name_hub: ""
+name_eda: mario-eda
+name_hub: mario-hub
 manage_kubemanifests_validate_certs: false
-
-automationcontroller:
-  spec:
-    admin_password_secret: "{{ name_controller }}-admin-password"
-    route_host: mario-controller.escwq.xyz
-    postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
 
 ansibleautomationplatform:
   spec:
+    database:
+      database_secret: "{{ name_gateway }}-postgres-configuration"
+    route_host: mario-controller.escwq.xyz
     admin_password_secret: "{{ name_controller }}-admin-password"
     controller:
       disabled: false
       name: "{{ name_controller }}"
+      postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+      task_resource_requirements:
+        requests:
+          cpu: 100m
+          memory: 128Mi
+          ephemeral-storage: 100M
+        limits:
+          cpu: 2000m
+          memory: 4Gi
+          ephemeral-storage: 500M
     hub:
-      disabled: true
+      disabled: false
+      name: "{{ name_hub }}"
+      postgres_configuration_secret: "{{ name_hub }}-postgres-configuration"
     eda:
-      disabled: true
-    database:
-      database_secret: "{{ name_gateway }}-postgres-configuration"
-    route_host: mario-controller.escwq.xyz
+      disabled: false
+      name: "{{ name_eda }}"
+      database:
+        database_secret: "{{ name_eda }}-postgres-configuration"
+      service_type: ClusterIP
+      ingress_type: Route
 
 secrets:
   - name: "{{ name_controller }}-admin-password"
@@ -46,6 +57,26 @@ secrets:
       host: 192.168.1.58
       port: 5416
       database: gateway
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_hub }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5416
+      database: hub
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - name: "{{ name_eda }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5416
+      database: eda
       username: postgres
       password: example
       sslmode: prefer
