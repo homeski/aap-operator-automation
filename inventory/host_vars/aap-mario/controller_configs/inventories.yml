@@ -1,4 +1,7 @@
 ---
 controller_inventories:
-  - name: hosts.ini
-    organization: Mario
+  - name: aap_deployments
+    organization: Default
+
+  - name: otherorg_inventory
+    organization: OtherOrg

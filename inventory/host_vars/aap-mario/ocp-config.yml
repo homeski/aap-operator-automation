@@ -1,10 +1,18 @@
 ---
+######
+# General
+######
+
 ocp_namespace: aap-mario
 name_gateway: mario-gateway
 name_controller: mario-controller
 name_eda: mario-eda
 name_hub: mario-hub
 manage_kubemanifests_validate_certs: false
+
+######
+# CRs
+######
 
 ansibleautomationplatform:
   spec:
@@ -36,6 +44,10 @@ ansibleautomationplatform:
         database_secret: "{{ name_eda }}-postgres-configuration"
       service_type: ClusterIP
       ingress_type: Route
+
+######
+# Secrets
+######
 
 secrets:
   - name: "{{ name_controller }}-admin-password"

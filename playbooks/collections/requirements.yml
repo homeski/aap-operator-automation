@@ -1,8 +1,11 @@
 ---
 collections:
-  - name: aap.platform_on_ocp
+  # - name: aap.platform_on_ocp
   - name: ansible.controller
-    version: '>=4.5.0,<4.6.0'
+    # For infra.aap_configuration
+    version: '>=4.6.0'
+    # For infra.controller_configuration
+    # version: '>=4.5.0,<4.6.0'
   - name: ansible.eda
   - name: ansible.hub
   - name: ansible.platform

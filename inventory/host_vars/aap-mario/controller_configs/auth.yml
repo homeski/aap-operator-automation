@@ -1,6 +1,6 @@
 ---
-controller_hostname: https://mario-controller.escwq.xyz
-# controller_username: ""
-# controller_password: ""
-# controller_token: ""
-controller_validate_certs: false
+aap_hostname: https://mario-controller.escwq.xyz
+# aap_username: ""
+# aap_password: ""
+# aap_token: ""
+aap_validate_certs: false

@@ -1,9 +1,17 @@
 ---
 controller_inventory_sources:
   - name: hosts.ini
-    inventory: hosts.ini
+    inventory: aap_deployments
     source: scm
     source_project: aap-operator-automation
+    source_path: inventory/hosts.ini
+    overwrite: true
+    overwrite_vars: true
+
+  - name: hosts.ini
+    inventory: otherorg_inventory
+    source: scm
+    source_project: otherorg_project
     source_path: inventory/hosts.ini
     overwrite: true
     overwrite_vars: true

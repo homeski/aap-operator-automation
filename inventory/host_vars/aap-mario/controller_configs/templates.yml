@@ -1,7 +1,15 @@
 ---
 controller_templates:
   - name: generate_kubemanifests
-    inventory: hosts.ini
+    organization: Default
+    inventory: aap_deployments
     project: aap-operator-automation
+    playbook: playbooks/generate_kubemanifests.yml
+    allow_simultaneous: true
+
+  - name: otherorg_generate_kubemanifests
+    organization: OtherOrg
+    inventory: otherorg_inventory
+    project: otherorg_project
     playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true
