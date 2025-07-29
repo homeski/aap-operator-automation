@@ -13,3 +13,10 @@ controller_templates:
     project: otherorg_project
     playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true
+
+  - name: curl
+    organization: Default
+    inventory: aap_deployments
+    project: aap-operator-automation
+    playbook: playbooks/curl.yml
+    allow_simultaneous: true
