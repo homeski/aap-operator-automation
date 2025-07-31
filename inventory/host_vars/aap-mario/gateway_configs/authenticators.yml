@@ -1,0 +1,117 @@
+gateway_authenticators:
+  - name: Local Database Authenticator
+    enabled: true
+    create_objects: true
+    remove_users: false
+    configuration: {}
+    type: ansible_base.authentication.authenticator_plugins.local
+    order: 1
+    slug: ansible_base-authentication-authenticator_plugins-local__local-database-authenticator
+    state: present
+
+  - name: Okta
+    enabled: true
+    create_objects: true
+    remove_users: false
+    configuration:
+      EXTRA_DATA:
+        - member-of
+      IDP_ATTR_EMAIL: Email
+      IDP_ATTR_FIRST_NAME: FirstName
+      IDP_ATTR_LAST_NAME: LastName
+      IDP_ATTR_USERNAME: UserName
+      IDP_ATTR_USER_PERMANENT_ID: UserName
+      IDP_ENTITY_ID: "https://idp.example.com/saml"
+      IDP_URL: "https://idp.example.com"
+      IDP_X509_CERT: |
+        -----BEGIN CERTIFICATE-----
+        MIIDbTCCAlWgAwIBAgIUCIc1Lty2Zw9FR+KFVkW+ctxznNEwDQYJKoZIhvcNAQEL
+        BQAwXzELMAkGA1UEBhMCVVMxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+        GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPaWRwLmV4YW1wbGUu
+        Y29tMB4XDTI1MDczMTIxMTU1MVoXDTI2MDczMTIxMTU1MVowXzELMAkGA1UEBhMC
+        VVMxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdp
+        dHMgUHR5IEx0ZDEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG
+        9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuip5PD4HUcm1r03tAp/Kw+/gYC5Klmzyuc0l
+        uvrKpuN7424FNDRAeuaidTfotqNpw2E4uIwZVF/fKhn/ycdHc03qVFr47OEba5wY
+        NmolSVVamERiPQ9oxRWY9y+0ADD+GnRfwCgGirIbP1ilv7enCd32quyoOyf9VSsW
+        C4zeDh/IXRZ4bF3hynz862RpdXOfKJ+MIB9W2W3sFFH2Oajmj8bB5q/07thOVk+5
+        LyRsU+/WS7Z6T/TCCXZfa68sjFyasKldEmud+K6QR1dLqzdCtgF9yxk1OD4liGV3
+        5DNbFYsBPnvn41+SSB9KKTWIXiwDPM2ucu43nXSAQBJJWq92WQIDAQABoyEwHzAd
+        BgNVHQ4EFgQUFLKZ1MuakVopdJx6Zs2JKPg8w2gwDQYJKoZIhvcNAQELBQADggEB
+        AHTJkjl3QhZBnX7xvedsoCIEkckO6eq3tqLKxh0XLIZvj2kPaYg2Jow14oD7OvS+
+        AvvgxqLmKn0fZFJP+6PlBnCrSnmAMe6nMt3ciyJJ4wUn7y0bjMk98mPxCZP4VSaO
+        Tt+U8mjf8xHxnoXWaMu4xEReaC78hBdKRySyiC77uTL0K7p6Q8/3Qya+tTy3Y6SH
+        cwUcOGDTr4iFoRcbKyX/Eshuv5iCZVQBN2tSQ42Ogwekib1whappKInVR3anAMrJ
+        klt+eciWFJ7LoLEMJpzygDcffjSEvmET6EMGJiwWr0YflxNcgLMafPMOC7X/ONol
+        zrs4tHjsMPGoLQl23+/YBVI=
+        -----END CERTIFICATE-----
+      ORG_INFO:
+        en-US:
+          url: "https://aap25.example.com/"
+          name: Ansible Automation Platform - Stage
+          displayname: Ansible Automation Platform - Stage
+      SECURITY_CONFIG: {}
+      SP_ENTITY_ID: "https://aap25.example.com"
+      SP_PUBLIC_CERT: |
+        -----BEGIN CERTIFICATE-----
+        MIIDbTCCAlWgAwIBAgIUCIc1Lty2Zw9FR+KFVkW+ctxznNEwDQYJKoZIhvcNAQEL
+        BQAwXzELMAkGA1UEBhMCVVMxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+        GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEYMBYGA1UEAwwPaWRwLmV4YW1wbGUu
+        Y29tMB4XDTI1MDczMTIxMTU1MVoXDTI2MDczMTIxMTU1MVowXzELMAkGA1UEBhMC
+        VVMxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdp
+        dHMgUHR5IEx0ZDEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjANBgkqhkiG
+        9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuip5PD4HUcm1r03tAp/Kw+/gYC5Klmzyuc0l
+        uvrKpuN7424FNDRAeuaidTfotqNpw2E4uIwZVF/fKhn/ycdHc03qVFr47OEba5wY
+        NmolSVVamERiPQ9oxRWY9y+0ADD+GnRfwCgGirIbP1ilv7enCd32quyoOyf9VSsW
+        C4zeDh/IXRZ4bF3hynz862RpdXOfKJ+MIB9W2W3sFFH2Oajmj8bB5q/07thOVk+5
+        LyRsU+/WS7Z6T/TCCXZfa68sjFyasKldEmud+K6QR1dLqzdCtgF9yxk1OD4liGV3
+        5DNbFYsBPnvn41+SSB9KKTWIXiwDPM2ucu43nXSAQBJJWq92WQIDAQABoyEwHzAd
+        BgNVHQ4EFgQUFLKZ1MuakVopdJx6Zs2JKPg8w2gwDQYJKoZIhvcNAQELBQADggEB
+        AHTJkjl3QhZBnX7xvedsoCIEkckO6eq3tqLKxh0XLIZvj2kPaYg2Jow14oD7OvS+
+        AvvgxqLmKn0fZFJP+6PlBnCrSnmAMe6nMt3ciyJJ4wUn7y0bjMk98mPxCZP4VSaO
+        Tt+U8mjf8xHxnoXWaMu4xEReaC78hBdKRySyiC77uTL0K7p6Q8/3Qya+tTy3Y6SH
+        cwUcOGDTr4iFoRcbKyX/Eshuv5iCZVQBN2tSQ42Ogwekib1whappKInVR3anAMrJ
+        klt+eciWFJ7LoLEMJpzygDcffjSEvmET6EMGJiwWr0YflxNcgLMafPMOC7X/ONol
+        zrs4tHjsMPGoLQl23+/YBVI=
+        -----END CERTIFICATE-----
+      SP_PRIVATE_KEY: |
+        -----BEGIN PRIVATE KEY-----
+        MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC6Knk8PgdRybWv
+        Te0Cn8rD7+BgLkqWbPK5zSW6+sqm43vjbgU0NEB65qJ1N+i2o2nDYTi4jBlUX98q
+        Gf/Jx0dzTepUWvjs4RtrnBg2aiVJVVqYRGI9D2jFFZj3L7QAMP4adF/AKAaKshs/
+        WKW/t6cJ3faq7Kg7J/1VKxYLjN4OH8hdFnhsXeHKfPzrZGl1c58on4wgH1bZbewU
+        UfY5qOaPxsHmr/Tu2E5WT7kvJGxT79ZLtnpP9MIJdl9rryyMXJqwqV0Sa534rpBH
+        V0urN0K2AX3LGTU4PiWIZXfkM1sViwE+e+fjX5JIH0opNYheLAM8za5y7jeddIBA
+        Eklar3ZZAgMBAAECggEAFoA89kMshQ4HWcSGR6WK30cKVHGv5fHN3hdtrqVykjyH
+        TDAvbJV+sCQZYWfUJqQGa90fuw2C37v1OAxbqlad3BHAJ3k14kKcevOLSSNn9Y69
+        lA8a3RS0VfLT8dd4Dvhc9BNaAdqMnN2lVbEYGn2e8L49WsAfHsRI9i7um4+HhMcN
+        GyjUGI3w5aBbkyMoPM1pvrJdGFwDQc5klZjzOtAD02i4bNzvKXeDpB06KFVBKnQG
+        /Z4l+4OyTopRc93A6mZUO7TRbrChegQ36H866dN+WaZivi85L/WoG2nNppHwo1+b
+        cXlbrfQaAB5HobagZKNwh9H0onEWF2AxG0/yJC+30QKBgQD611VjU/GszAE6jUU8
+        VkCsjffDNAsCroHy8hLmoR2jbhTos9yDUX95bajIx8VTo4oSnLmys+JQDTcBAa8c
+        DD5ZtL+ojIvyAVTygpRktBdX/J/pdJKF4A7sMZAO2m3sV4hzUOdf/Hne+1jLo7HZ
+        hxyCwcEs4vvvtmc4x1fnUendiQKBgQC9/qDIpkGB8ERiAXkP/vn8CqoNy0jc7gps
+        xzxla/HGysnUhpq9bN0D9ek6WuAFAyzr99RC0sDiAI7bUt2VXpujRqf8GbOAwF2f
+        R9ZVKHAW9rbeJcATKrN2LUEqqtL+4qbBVAZLrJXZwIHn7txbm2KzZPKIDbcg7GdQ
+        wUcVaiPuUQKBgQDzZ4R6D/jRflwq3u6yL9guGMy05IlSnteGUZQ5q1nBPo6XiACQ
+        hMK3p8tCmWdHU8gla2NenuMaXthi56luBAt0rMnV2hvqR5SQhllMptyICqF5vh54
+        PgT8+NMbNqW30vCbRYRfRfVUhH2TjVKFDHCECVNUJSXnZA4hsH4B/yB6UQKBgCwZ
+        qmBoltP+XSESjnM0D/p8zzQcd3Ewn6LYLCCuiZRHBcoa5FgLqNF+hwBQj6caMZck
+        E1Tfbn4G+yHVfjFpoF6py9wsawn7nL+YARwLItlxssiloovQYY+QuYuZ0xfurB47
+        zqpKCQ5eLMkVHHj2/FX/nHwQEu3FccXA1ysVU/nBAoGBAMPRwDNuCnAfxHM5XFoX
+        D26qEEpu9Snu1i3UDUsqO2w/rVa/BmiiZfKmQrJp2v3Gxlgjttp3N4Y4XLIUfUhy
+        FQ/ri3Yil2qeZj0e+64RdCx3xLupEKgGtNUIRWduZBiYUrB/LDsoZS+9JYQp9cQr
+        tpAMdqxx4nBklwVTW9olK4Mw
+        -----END PRIVATE KEY-----
+      SP_EXTRA:
+        requestedAuthnContext: false
+      SUPPORT_CONTACT:
+        givenName: Ansible Automation Platform Team
+        emailAddress: aapeng@acme.com
+      TECHNICAL_CONTACT:
+        givenName: Ansible Automation Platform Team
+        emailAddress: aapeng@acme.com
+    type: ansible_base.authentication.authenticator_plugins.saml
+    order: 2
+    slug: ansible_base-authentication-authenticator_plugins-saml__okta
+    state: present
