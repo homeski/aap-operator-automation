@@ -1,0 +1,13 @@
+---
+controller_workflows:
+  - name: Simple workflow schema
+    organization:
+      name: Default
+    workflow_nodes:
+      - all_parents_must_converge: false
+        identifier: node101
+        unified_job_template:
+          name: aap-operator-automation
+          type: project
+          organization:
+            name: Default
