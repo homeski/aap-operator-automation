@@ -46,6 +46,17 @@ ansibleautomationplatform:
       ingress_type: Route
 
 ######
+# PVCs
+######
+
+pvcs:
+  - name: "{{ name_controller }}-controller-pvc-projects"
+    spec:
+      resources:
+        requests:
+          storage: 2000m
+
+######
 # Secrets
 ######
 
