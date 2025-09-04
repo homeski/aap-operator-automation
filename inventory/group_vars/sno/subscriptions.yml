@@ -1,0 +1,6 @@
+---
+subscriptions:
+  - name: ansible-automation-platform-operator
+    namespace: aap
+    spec:
+      channel: stable-2.5-cluster-scoped
