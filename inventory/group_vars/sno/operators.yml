@@ -8,9 +8,22 @@ operatorgroups:
         - aap-luigi
         - aap-mario
 
+  - metadata:
+      name: ansible-automation-platform-operator-24-dev
+      namespace: aap-24-dev
+    spec:
+      targetNamespaces:
+        - aap-24-dev
+
 subscriptions:
   - metadata:
       name: ansible-automation-platform-operator
       namespace: aap
     spec:
       channel: stable-2.5-cluster-scoped
+
+  - metadata:
+      name: ansible-automation-platform-operator-24-dev
+      namespace: aap-24-dev
+    spec:
+      channel: stable-2.4-cluster-scoped
