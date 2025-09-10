@@ -55,11 +55,13 @@ eda:
 ######
 
 secrets:
-  - name: "{{ ocp_namespace }}-admin-password"
+  - metadata:
+      name: "{{ ocp_namespace }}-admin-password"
     data:
       password: foobar
 
-  - name: "{{ name_controller }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_controller }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5417
@@ -69,7 +71,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_gateway }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_gateway }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5417
@@ -79,7 +82,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_hub }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_hub }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5417
@@ -89,7 +93,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_eda }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_eda }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5417

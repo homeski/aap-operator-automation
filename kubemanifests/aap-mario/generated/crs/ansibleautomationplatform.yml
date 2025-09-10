@@ -44,7 +44,7 @@ spec:
         ephemeral-storage: 500M
         memory: 4Gi
       requests:
-        cpu: 100m
+        cpu: 10Gi
         ephemeral-storage: 100M
         memory: 128Mi
   database:

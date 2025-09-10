@@ -40,7 +40,8 @@ eda:
       database_secret: "{{ name_eda }}-postgres-configuration"
 
 secrets:
-  - name: "{{ name_gateway }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_gateway }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5415
@@ -50,7 +51,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_controller }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_controller }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5415
@@ -60,7 +62,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_hub }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_hub }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5415
@@ -70,7 +73,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_eda }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_eda }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5415
@@ -80,10 +84,12 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_controller }}-admin-password"
+  - metadata:
+      name: "{{ name_controller }}-admin-password"
     data:
       password: foobar
 
-  - name: "{{ name_controller }}-secret-key"
+  - metadata:
+      name: "{{ name_controller }}-secret-key"
     data:
       secret_key: encryptionkey

@@ -29,7 +29,7 @@ ansibleautomationplatform:
       secret_key_secret: "{{ name_controller }}-secret-key"
       task_resource_requirements:
         requests:
-          cpu: 100m
+          cpu: 10Gi
           memory: 128Mi
           ephemeral-storage: 100M
         limits:
@@ -55,38 +55,59 @@ ansibleautomationplatform:
 ######
 
 pvcs:
-  - name: "{{ name_controller }}-pvc-projects"
+  - metadata:
+      name: "{{ name_controller }}-pvc-projects"
     spec:
       resources:
         requests:
           storage: 5Gi
 
 ######
+# Routes
+######
+
+routes:
+  - metadata:
+      name: "{{ name_controller }}-custom-route"
+    spec:
+      host: mycustomroute.escwq.xyz
+      to:
+        kind: Service
+        name: "{{ name_controller }}-service"
+        weight: 98
+
+######
 # Secrets
 ######
 
 secrets:
-  - name: "{{ name_gateway }}-admin-password"
+  - metadata:
+      name: "{{ name_gateway }}-admin-password"
     data:
       password: foobar
 
-  - name: "{{ name_controller }}-secret-key"
+  - metadata:
+      name: "{{ name_controller }}-secret-key"
     data:
       secret_key: myencryptionkey
 
-  - name: "{{ name_gateway }}-encryption-secret"
+  - metadata:
+      name: "{{ name_gateway }}-encryption-secret"
     data:
       secret_key: myencryptionkey
 
-  - name: "{{ name_eda }}-encryption-secret"
+  - metadata:
+      name: "{{ name_eda }}-encryption-secret"
     data:
       secret_key: myencryptionkey
 
-  - name: "{{ name_hub }}-encryption-secret"
+  - metadata:
+      name: "{{ name_hub }}-encryption-secret"
     data:
       database_fields.symmetric.key: "PL-MoD-KFjYE3ZmYrOmuq1rcxDqJg3w8MrYXaHQ7jQg="
 
-  - name: "{{ name_controller }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_controller }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5416
@@ -96,7 +117,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_gateway }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_gateway }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5416
@@ -106,7 +128,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_hub }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_hub }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5416
@@ -116,7 +139,8 @@ secrets:
       sslmode: prefer
       type: unmanaged
 
-  - name: "{{ name_eda }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_eda }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5416

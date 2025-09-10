@@ -17,15 +17,18 @@ automationhub:
     route_host: hub-prod.escwq.xyz
 
 secrets:
-  - name: "{{ name_controller }}-admin-password"
+  - metadata:
+      name: "{{ name_controller }}-admin-password"
     data:
       password: foobar
 
-  - name: "{{ name_hub }}-admin-password"
+  - metadata:
+      name: "{{ name_hub }}-admin-password"
     data:
       password: foobar2
 
-  - name: "{{ name_hub }}-postgres-configuration"
+  - metadata:
+      name: "{{ name_hub }}-postgres-configuration"
     data:
       host: 192.168.1.58
       port: 5415
