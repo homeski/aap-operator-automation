@@ -16,9 +16,10 @@ manage_kubemanifests_validate_certs: false
 
 automationcontroller:
   spec:
-    admin_password_secret: "{{ ocp_namespace }}-admin-password"
+    admin_password_secret: "{{ name_controller }}-admin-password"
     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
     route_host: luigi-controller.escwq.xyz
+    auto_upgrade: false
 
 ansibleautomationplatform:
   spec:
@@ -56,7 +57,7 @@ eda:
 
 secrets:
   - metadata:
-      name: "{{ ocp_namespace }}-admin-password"
+      name: "{{ name_controller }}-admin-password"
     data:
       password: foobar
 

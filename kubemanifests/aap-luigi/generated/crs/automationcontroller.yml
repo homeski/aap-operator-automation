@@ -4,9 +4,9 @@ metadata:
   name: luigi-controller
   namespace: aap-luigi
 spec:
-  admin_password_secret: aap-luigi-admin-password
+  admin_password_secret: luigi-controller-admin-password
   admin_user: admin
-  auto_upgrade: true
+  auto_upgrade: false
   create_preload_data: false
   garbage_collect_secrets: true
   image_pull_policy: IfNotPresent
