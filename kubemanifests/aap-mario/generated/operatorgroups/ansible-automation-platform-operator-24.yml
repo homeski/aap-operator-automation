@@ -1,0 +1,8 @@
+apiVersion: operators.coreos.com/v1
+kind: OperatorGroup
+metadata:
+  name: ansible-automation-platform-operator-24
+  namespace: aap-24-operator
+spec:
+  targetNamespaces:
+  - aap-24-dev

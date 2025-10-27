@@ -1,29 +1,41 @@
 ---
 operatorgroups:
   - metadata:
-      name: ansible-automation-platform-operator
-      namespace: aap
-    spec:
-      targetNamespaces:
-        - aap-luigi
-        - aap-mario
-
-  - metadata:
-      name: ansible-automation-platform-operator-24-dev
-      namespace: aap-24-dev
+      name: ansible-automation-platform-operator-24
+      namespace: aap-24-operator
     spec:
       targetNamespaces:
         - aap-24-dev
 
+  - metadata:
+      name: ansible-automation-platform-operator-25
+      namespace: aap-25-operator
+    spec:
+      targetNamespaces:
+        - aap-luigi
+
+  - metadata:
+      name: ansible-automation-platform-operator-26
+      namespace: aap-26-operator
+    spec:
+      targetNamespaces:
+        - aap-mario
+
 subscriptions:
   - metadata:
-      name: ansible-automation-platform-operator
-      namespace: aap
+      name: ansible-automation-platform-operator-24
+      namespace: aap-24-operator
+    spec:
+      channel: stable-2.4-cluster-scoped
+
+  - metadata:
+      name: ansible-automation-platform-operator-25
+      namespace: aap-25-operator
     spec:
       channel: stable-2.5-cluster-scoped
 
   - metadata:
-      name: ansible-automation-platform-operator-24-dev
-      namespace: aap-24-dev
+      name: ansible-automation-platform-operator-26
+      namespace: aap-26-operator
     spec:
-      channel: stable-2.4-cluster-scoped
+      channel: stable-2.6-cluster-scoped

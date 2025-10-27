@@ -38,15 +38,6 @@ spec:
     secret_key_secret: mario-controller-secret-key
     set_self_labels: true
     task_privileged: false
-    task_resource_requirements:
-      limits:
-        cpu: 2000m
-        ephemeral-storage: 500M
-        memory: 4Gi
-      requests:
-        cpu: 10Gi
-        ephemeral-storage: 100M
-        memory: 128Mi
   database:
     database_secret: mario-gateway-postgres-configuration
   db_fields_encryption_secret: mario-gateway-encryption-secret
