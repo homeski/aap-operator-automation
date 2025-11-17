@@ -5,7 +5,7 @@ operatorgroups:
       namespace: aap-24-operator
     spec:
       targetNamespaces:
-        - aap-24-dev
+        - aap-bowser
 
   - metadata:
       name: ansible-automation-platform-operator-25

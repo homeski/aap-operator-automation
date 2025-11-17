@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: mario-controller-custom-route
+  namespace: aap-mario
+spec:
+  host: mycustomroute.escwq.xyz
+  port:
+    targetPort: http
+  to:
+    kind: Service
+    name: mario-controller-service
+    weight: 98
+  wildcardPolicy: None

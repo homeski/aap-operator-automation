@@ -1,6 +1,0 @@
----
-aap_hostname: https://aap-25.escwq.xyz
-# aap_username: ""
-# aap_password: ""
-# aap_token: ""
-aap_validate_certs: false

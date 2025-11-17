@@ -1,0 +1,54 @@
+---
+ocp_namespace: aap-bowser
+name_gateway: ""
+name_controller: bowser-controller
+name_eda: ""
+name_hub: bowser-hub
+
+automationcontroller:
+  spec:
+    admin_password_secret: "{{ name_controller }}-admin-password"
+    route_host: bowser-controller.escwq.xyz
+    extra_volumes: |
+      - name: {{ name_controller }}-rsyslog-volume
+        configMap:
+          defaultMode: 420
+          items:
+            - key: rsyslog.conf
+              path: rsyslog.conf
+          name: {{ name_controller }}-rsyslog-configmap
+    rsyslog_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
+    task_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
+    web_extra_volume_mounts: |
+      - name: {{ name_controller }}-rsyslog-volume
+        mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
+        subPath: rsyslog.conf
+
+automationhub:
+  spec:
+    admin_password_secret: "{{ name_hub }}-admin-password"
+    route_host: bowser-hub.escwq.xyz
+
+secrets:
+  - metadata:
+      name: "{{ name_controller }}-admin-password"
+    data:
+      password: foobar
+
+  - metadata:
+      name: "{{ name_hub }}-admin-password"
+    data:
+      password: foobar2
+
+configmaps:
+  - metadata:
+      name: "{{ name_controller }}-rsyslog-configmap"
+    data:
+      rsyslog.conf: |
+        $MaxMessageSize 2147483646

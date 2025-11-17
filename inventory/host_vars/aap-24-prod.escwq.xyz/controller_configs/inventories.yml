@@ -1,7 +1,0 @@
----
-controller_inventories:
-  - name: aap_deployments
-    organization: Default
-
-  - name: blah
-    organization: AAP24OtherOrg-prod

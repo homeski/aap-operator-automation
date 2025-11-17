@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bowser-controller-rsyslog-configmap
+  namespace: aap-bowser
+data:
+  rsyslog.conf: '$MaxMessageSize 2147483646
+
+    '
