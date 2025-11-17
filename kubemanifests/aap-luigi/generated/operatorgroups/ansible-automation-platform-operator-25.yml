@@ -1,8 +1,0 @@
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: ansible-automation-platform-operator-25
-  namespace: aap-25-operator
-spec:
-  targetNamespaces:
-  - aap-luigi

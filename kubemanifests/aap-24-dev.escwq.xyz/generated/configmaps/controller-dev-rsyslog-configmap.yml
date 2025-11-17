@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: controller-dev-rsyslog-configmap
-  namespace: aap-24-dev
-data:
-  rsyslog.conf: '$MaxMessageSize 2147483646
-
-    '

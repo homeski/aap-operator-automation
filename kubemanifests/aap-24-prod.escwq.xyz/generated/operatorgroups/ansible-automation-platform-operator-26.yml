@@ -1,8 +1,0 @@
-apiVersion: operators.coreos.com/v1
-kind: OperatorGroup
-metadata:
-  name: ansible-automation-platform-operator-26
-  namespace: aap-26-operator
-spec:
-  targetNamespaces:
-  - aap-mario
