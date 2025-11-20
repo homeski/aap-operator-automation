@@ -1,0 +1,6 @@
+---
+controller_schedules:
+  - name: Ping schedule
+    enabled: true
+    unified_job_template: Ping hosts
+    rrule: "DTSTART;TZID=America/Phoenix:20251120T161500 RRULE:INTERVAL=5;FREQ=MINUTELY"

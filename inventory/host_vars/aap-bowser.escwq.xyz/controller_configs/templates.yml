@@ -1,7 +1,10 @@
 ---
 controller_templates:
   - name: Ping hosts
-    inventory: linode-hosts
-    project: aap-operator-automation
-    playbook: playbooks/ping.yml
     allow_simultaneous: true
+    credentials:
+      - Linode machine
+    inventory: linode-hosts
+    job_slice_count: 9
+    playbook: playbooks/ping.yml
+    project: aap-operator-automation
