@@ -65,7 +65,7 @@ secrets:
       name: "{{ name_controller }}-postgres-configuration"
     data:
       host: 192.168.1.58
-      port: 5417
+      port: 5416
       database: controller
       username: postgres
       password: example
@@ -76,7 +76,7 @@ secrets:
       name: "{{ name_gateway }}-postgres-configuration"
     data:
       host: 192.168.1.58
-      port: 5417
+      port: 5416
       database: gateway
       username: postgres
       password: example
@@ -87,7 +87,7 @@ secrets:
       name: "{{ name_hub }}-postgres-configuration"
     data:
       host: 192.168.1.58
-      port: 5417
+      port: 5416
       database: hub
       username: postgres
       password: example
@@ -98,7 +98,7 @@ secrets:
       name: "{{ name_eda }}-postgres-configuration"
     data:
       host: 192.168.1.58
-      port: 5417
+      port: 5416
       database: eda
       username: postgres
       password: example
