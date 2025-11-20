@@ -1,14 +1,7 @@
 ---
 controller_templates:
-  - name: generate_kubemanifests
-    inventory: aap_deployments
+  - name: Ping hosts
+    inventory: linode-hosts
     project: aap-operator-automation
-    playbook: playbooks/generate_kubemanifests.yml
-    allow_simultaneous: true
-
-  - name: myotherplaybook
-    organization: AAP24OtherOrg-dev
-    inventory: "blah%3A the blah++AAP24OtherOrg-dev"
-    project: aap-operator-automation-other
-    playbook: playbooks/generate_kubemanifests.yml
+    playbook: playbooks/ping.yml
     allow_simultaneous: true

@@ -1,10 +1,7 @@
 ---
 controller_inventories:
-  - name: aap_deployments
+  - name: hosts.ini
     organization: Default
 
-  - name: "blah: the blah"
+  - name: linode-hosts
     organization: Default
-
-  - name: "blah: the blah"
-    organization: AAP24OtherOrg-dev

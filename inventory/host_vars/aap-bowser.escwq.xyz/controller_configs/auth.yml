@@ -1,6 +1,6 @@
 ---
-controller_hostname: https://aap-24-dev.escwq.xyz
-# controller_username: ""
-# controller_password: ""
+controller_hostname: https://bowser-controller.escwq.xyz
+controller_username: admin
+controller_password: foobar
 # controller_token: ""
 controller_validate_certs: false

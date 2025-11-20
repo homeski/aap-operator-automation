@@ -8,7 +8,6 @@ name_hub: bowser-hub
 automationcontroller:
   spec:
     admin_password_secret: "{{ name_controller }}-admin-password"
-    route_host: bowser-controller.escwq.xyz
     extra_volumes: |
       - name: {{ name_controller }}-rsyslog-volume
         configMap:
@@ -17,6 +16,8 @@ automationcontroller:
             - key: rsyslog.conf
               path: rsyslog.conf
           name: {{ name_controller }}-rsyslog-configmap
+    postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+    route_host: bowser-controller.escwq.xyz
     rsyslog_extra_volume_mounts: |
       - name: {{ name_controller }}-rsyslog-volume
         mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
@@ -33,6 +34,7 @@ automationcontroller:
 automationhub:
   spec:
     admin_password_secret: "{{ name_hub }}-admin-password"
+    postgres_configuration_secret: "{{ name_hub }}-postgres-configuration"
     route_host: bowser-hub.escwq.xyz
 
 secrets:
@@ -44,7 +46,29 @@ secrets:
   - metadata:
       name: "{{ name_hub }}-admin-password"
     data:
-      password: foobar2
+      password: foobar
+
+  - metadata:
+      name: "{{ name_controller }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5415
+      database: controller
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
+
+  - metadata:
+      name: "{{ name_hub }}-postgres-configuration"
+    data:
+      host: 192.168.1.58
+      port: 5415
+      database: hub
+      username: postgres
+      password: example
+      sslmode: prefer
+      type: unmanaged
 
 configmaps:
   - metadata:

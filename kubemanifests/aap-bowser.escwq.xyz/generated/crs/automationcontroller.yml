@@ -23,6 +23,7 @@ spec:
   metrics_utility_enabled: false
   metrics_utility_pvc_claim_size: 5Gi
   no_log: true
+  postgres_configuration_secret: bowser-controller-postgres-configuration
   postgres_keepalives: true
   postgres_keepalives_count: 5
   postgres_keepalives_idle: 5
