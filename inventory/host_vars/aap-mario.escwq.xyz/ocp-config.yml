@@ -20,12 +20,13 @@ ansibleautomationplatform:
     database:
       database_secret: "{{ name_gateway }}-postgres-configuration"
     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
-    route_host: mario-controller.escwq.xyz
+    route_host: mario-aap.escwq.xyz
     controller:
       disabled: false
       name: "{{ name_controller }}"
       postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
       projects_existing_claim: "{{ name_controller }}-pvc-projects"
+      route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
     hub:
       disabled: false

@@ -34,6 +34,7 @@ spec:
     projects_storage_access_mode: ReadWriteMany
     projects_storage_size: 8Gi
     replicas: 1
+    route_host: mario-controller.escwq.xyz
     route_tls_termination_mechanism: Edge
     secret_key_secret: mario-controller-secret-key
     set_self_labels: true
@@ -112,4 +113,4 @@ spec:
     worker:
       replicas: 2
   no_log: true
-  route_host: mario-controller.escwq.xyz
+  route_host: mario-aap.escwq.xyz
