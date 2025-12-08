@@ -1,5 +1,5 @@
 ---
-aap_hostname: https://mario-controller.escwq.xyz
+aap_hostname: https://mario-aap.escwq.xyz
 aap_username: admin
 aap_password: foobar
 # aap_token: ""

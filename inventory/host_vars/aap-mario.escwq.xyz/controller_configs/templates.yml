@@ -14,9 +14,9 @@ controller_templates:
     playbook: playbooks/generate_kubemanifests.yml
     allow_simultaneous: true
 
-  - name: curl
+  - name: ping
     organization: Default
     inventory: aap_deployments
     project: aap-operator-automation
-    playbook: playbooks/curl.yml
+    playbook: playbooks/ping.yml
     allow_simultaneous: true
