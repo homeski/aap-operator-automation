@@ -1,0 +1,108 @@
+# ---
+# ######
+# # General
+# ######
+
+# ocp_namespace: aap-mario
+# name_gateway: mario-gateway
+# name_controller: mario-controller
+# name_eda:
+# name_hub:
+# manage_kubemanifests_validate_certs: false
+
+# ######
+# # CRs
+# ######
+
+# automationcontroller:
+#   spec:
+#     admin_password_secret: "{{ name_controller }}-admin-password"
+#     extra_settings:
+#       - setting: AUTH_LDAP_SERVER_URI
+#         value: '"ldap://lldap.lldap.svc.cluster.local:3890"'
+#       - setting: AUTH_LDAP_BIND_DN
+#         value: '"cn=admin,ou=people,dc=example,dc=com"'
+#       - setting: AUTH_LDAP_USER_SEARCH
+#         value: 'LDAPSearch("ou=people,dc=example,dc=com", ldap.SCOPE_SUBTREE, "(cn=%(user)s)")'
+#       - setting: AUTH_LDAP_GROUP_SEARCH
+#         value: 'LDAPSearch("ou=groups,dc=example,dc=com", ldap.SCOPE_SUBTREE, "(objectClass=*)")'
+#       - setting: AUTH_LDAP_USER_ATTR_MAP
+#         value: '{"email": "mail", "last_name": "last_name", "first_name": "first_name"}'
+#       - setting: AUTH_LDAP_USER_FLAGS_BY_GROUP
+#         value: '{"is_superuser": ["cn=aap_admins,ou=groups,dc=example,dc=com"]}'
+#       - setting: AUTH_LDAP_GROUP_TYPE
+#         value: 'MemberDNGroupType(member_attr="member")'
+#       - setting: AUTH_LDAP_GROUP_TYPE_PARAMS
+#         value: '{"name_attr": "cn", "member_attr": "member"}'
+#     ldap_password_secret: "{{ name_controller }}-ldap-password-secret"
+#     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+#     route_host: "{{ name_controller }}.escwq.xyz"
+#     secret_key_secret: "{{ name_controller }}-secret-key"
+
+# ansibleautomationplatform:
+#   spec:
+#     no_log: false
+#     admin_password_secret: "{{ name_gateway }}-admin-password"
+#     database:
+#       database_secret: "{{ name_gateway }}-postgres-configuration"
+#     db_fields_encryption_secret: "{{ name_gateway }}-secret-key"
+#     route_host: mario-aap.escwq.xyz
+#     controller:
+#       disabled: false
+#       name: "{{ name_controller }}"
+#     hub:
+#       disabled: true
+#     eda:
+#       disabled: true
+
+# ######
+# # Secrets
+# ######
+
+# secrets:
+#   - metadata:
+#       name: "{{ name_controller }}-admin-password"
+#     data:
+#       password: foobar
+
+#   - metadata:
+#       name: "{{ name_controller }}-ldap-password-secret"
+#     data:
+#       ldap-password: password
+
+#   - metadata:
+#       name: "{{ name_controller }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: controller
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_controller }}-secret-key"
+#     data:
+#       secret_key: secretkeycontroller
+
+#   - metadata:
+#       name: "{{ name_gateway }}-admin-password"
+#     data:
+#       password: foobar
+
+#   - metadata:
+#       name: "{{ name_gateway }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: gateway
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_gateway }}-secret-key"
+#     data:
+#       secret_key: secretkeyaap

@@ -17,9 +17,6 @@
 # automationcontroller:
 #   spec:
 #     admin_password_secret: "{{ name_controller }}-admin-password"
-#     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
-#     route_host: "{{ name_controller }}.escwq.xyz"
-#     ldap_password_secret: "{{ name_controller }}-ldap-password-secret"
 #     extra_settings:
 #       - setting: AUTH_LDAP_SERVER_URI
 #         value: '"ldap://lldap.lldap.svc.cluster.local:3890"'
@@ -37,6 +34,10 @@
 #         value: 'MemberDNGroupType(member_attr="member")'
 #       - setting: AUTH_LDAP_GROUP_TYPE_PARAMS
 #         value: '{"name_attr": "cn", "member_attr": "member"}'
+#     ldap_password_secret: "{{ name_controller }}-ldap-password-secret"
+#     postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+#     route_host: "{{ name_controller }}.escwq.xyz"
+#     secret_key_secret: "{{ name_controller }}-secret-key"
 
 # ######
 # # Secrets
@@ -52,3 +53,19 @@
 #       name: "{{ name_controller }}-ldap-password-secret"
 #     data:
 #       ldap-password: password
+
+#   - metadata:
+#       name: "{{ name_controller }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: controller
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_controller }}-secret-key"
+#     data:
+#       secret_key: secretkeycontroller
