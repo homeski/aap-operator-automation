@@ -4,9 +4,9 @@ gateway_authenticators:
     enabled: true
     create_objects: true
     remove_users: false
-    configuration: {}
+    configuration:
+      fallback_authentication:
     type: ansible_base.authentication.authenticator_plugins.local
-    slug: ansible_base-authentication-authenticator_plugins-local__local-database-authenticator
     state: present
 
   - name: lldap
