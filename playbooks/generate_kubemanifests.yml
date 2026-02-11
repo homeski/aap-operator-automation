@@ -2,6 +2,8 @@
 - name: Generate kubemanifests files
   hosts: all
   gather_facts: false
+  vars:
+    generate_kubemanifests_template_empty: true
   tasks:
     - name: Import role
       ansible.builtin.import_role:
