@@ -18,7 +18,7 @@
 #   spec:
 #     admin_password_secret: "{{ name_gateway }}-admin-password"
 #     database:
-#       database_secret: "{{ name_gatqeway }}-postgres-configuration"
+#       database_secret: "{{ name_gateway }}-postgres-configuration"
 #     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
 #     route_host: mario-aap.escwq.xyz
 #     controller:
