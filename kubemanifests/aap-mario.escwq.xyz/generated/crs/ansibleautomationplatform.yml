@@ -23,12 +23,12 @@ spec:
     metrics_utility_pvc_claim_size: 5Gi
     name: mario-controller
     no_log: true
-    postgres_configuration_secret: mario-controller-postgres-configuration
     postgres_keepalives: true
     postgres_keepalives_count: 5
     postgres_keepalives_idle: 5
     postgres_keepalives_interval: 5
     postgres_storage_class: lvms-vg1
+    project_storage_class: lvms-vg1
     projects_existing_claim: mario-controller-pvc-projects
     projects_persistence: false
     projects_storage_access_mode: ReadWriteMany
@@ -40,14 +40,12 @@ spec:
     set_self_labels: true
     task_privileged: false
   database:
-    database_secret: mario-gateway-postgres-configuration
+    postgres_storage_class: lvms-vg1
   db_fields_encryption_secret: mario-gateway-encryption-secret
   eda:
     admin_user: admin
-    database:
-      database_secret: mario-eda-postgres-configuration
     db_fields_encryption_secret: mario-eda-encryption-secret
-    disabled: false
+    disabled: true
     image_pull_policy: IfNotPresent
     ingress_type: Route
     name: mario-eda
@@ -55,7 +53,7 @@ spec:
     service_type: ClusterIP
   hub:
     db_fields_encryption_secret: mario-hub-encryption-secret
-    disabled: false
+    disabled: true
     file_storage_access_mode: ReadWriteOnce
     file_storage_size: 5Gi
     file_storage_storage_class: lvms-vg1
@@ -72,7 +70,6 @@ spec:
     nginx_proxy_read_timeout: 120s
     nginx_proxy_send_timeout: 120s
     no_log: true
-    postgres_configuration_secret: mario-hub-postgres-configuration
     postgres_storage_class: lvms-vg1
     redis_storage_class: lvms-vg1
     route_tls_termination_mechanism: Edge

@@ -18,26 +18,23 @@ ansibleautomationplatform:
   spec:
     admin_password_secret: "{{ name_gateway }}-admin-password"
     database:
-      database_secret: "{{ name_gateway }}-postgres-configuration"
+      postgres_storage_class: lvms-vg1
     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
     route_host: mario-aap.escwq.xyz
     controller:
       disabled: false
       name: "{{ name_controller }}"
-      postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
       projects_existing_claim: "{{ name_controller }}-pvc-projects"
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
+      project_storage_class: lvms-vg1
     hub:
-      disabled: false
+      disabled: true
       name: "{{ name_hub }}"
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
-      postgres_configuration_secret: "{{ name_hub }}-postgres-configuration"
     eda:
-      disabled: false
+      disabled: true
       name: "{{ name_eda }}"
-      database:
-        database_secret: "{{ name_eda }}-postgres-configuration"
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
       ingress_type: Route
       service_type: ClusterIP
@@ -97,47 +94,3 @@ secrets:
       name: "{{ name_hub }}-encryption-secret"
     data:
       database_fields.symmetric.key: "PL-MoD-KFjYE3ZmYrOmuq1rcxDqJg3w8MrYXaHQ7jQg="
-
-  - metadata:
-      name: "{{ name_controller }}-postgres-configuration"
-    data:
-      host: 192.168.1.58
-      port: 5417
-      database: controller
-      username: postgres
-      password: example
-      sslmode: prefer
-      type: unmanaged
-
-  - metadata:
-      name: "{{ name_gateway }}-postgres-configuration"
-    data:
-      host: 192.168.1.58
-      port: 5417
-      database: gateway
-      username: postgres
-      password: example
-      sslmode: prefer
-      type: unmanaged
-
-  - metadata:
-      name: "{{ name_hub }}-postgres-configuration"
-    data:
-      host: 192.168.1.58
-      port: 5417
-      database: hub
-      username: postgres
-      password: example
-      sslmode: prefer
-      type: unmanaged
-
-  - metadata:
-      name: "{{ name_eda }}-postgres-configuration"
-    data:
-      host: 192.168.1.58
-      port: 5417
-      database: eda
-      username: postgres
-      password: example
-      sslmode: prefer
-      type: unmanaged

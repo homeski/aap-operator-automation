@@ -1,0 +1,144 @@
+# ---
+# ######
+# # General
+# ######
+
+# ocp_namespace: aap-mario
+# name_gateway: mario-gateway
+# name_controller: mario-controller
+# name_eda: mario-eda
+# name_hub: mario-hub
+# manage_kubemanifests_validate_certs: false
+
+# ######
+# # CRs
+# ######
+
+# ansibleautomationplatform:
+#   spec:
+#     admin_password_secret: "{{ name_gateway }}-admin-password"
+#     database:
+#       database_secret: "{{ name_gatqeway }}-postgres-configuration"
+#     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
+#     route_host: mario-aap.escwq.xyz
+#     controller:
+#       disabled: false
+#       name: "{{ name_controller }}"
+#       postgres_configuration_secret: "{{ name_controller }}-postgres-configuration"
+#       projects_existing_claim: "{{ name_controller }}-pvc-projects"
+#       route_host: mario-controller.escwq.xyz
+#       secret_key_secret: "{{ name_controller }}-secret-key"
+#       project_storage_class: lvms-vg1
+#     hub:
+#       disabled: true
+#       name: "{{ name_hub }}"
+#       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
+#       postgres_configuration_secret: "{{ name_hub }}-postgres-configuration"
+#     eda:
+#       disabled: true
+#       name: "{{ name_eda }}"
+#       database:
+#         database_secret: "{{ name_eda }}-postgres-configuration"
+#       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
+#       ingress_type: Route
+#       service_type: ClusterIP
+
+# ######
+# # PVCs
+# ######
+
+# pvcs:
+#   - metadata:
+#       name: "{{ name_controller }}-pvc-projects"
+#     spec:
+#       resources:
+#         requests:
+#           storage: 5Gi
+
+# ######
+# # Routes
+# ######
+
+# routes:
+#   - metadata:
+#       name: "{{ name_controller }}-custom-route"
+#     spec:
+#       host: mycustomroute.escwq.xyz
+#       to:
+#         kind: Service
+#         name: "{{ name_controller }}-service"
+#         weight: 98
+
+# ######
+# # Secrets
+# ######
+
+# secrets:
+#   - metadata:
+#       name: "{{ name_gateway }}-admin-password"
+#     data:
+#       password: foobar
+
+#   - metadata:
+#       name: "{{ name_controller }}-secret-key"
+#     data:
+#       secret_key: myencryptionkey
+
+#   - metadata:
+#       name: "{{ name_gateway }}-encryption-secret"
+#     data:
+#       secret_key: myencryptionkey
+
+#   - metadata:
+#       name: "{{ name_eda }}-encryption-secret"
+#     data:
+#       secret_key: myencryptionkey
+
+#   - metadata:
+#       name: "{{ name_hub }}-encryption-secret"
+#     data:
+#       database_fields.symmetric.key: "PL-MoD-KFjYE3ZmYrOmuq1rcxDqJg3w8MrYXaHQ7jQg="
+
+#   - metadata:
+#       name: "{{ name_controller }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: controller
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_gateway }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: gateway
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_hub }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: hub
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
+
+#   - metadata:
+#       name: "{{ name_eda }}-postgres-configuration"
+#     data:
+#       host: 192.168.1.58
+#       port: 5417
+#       database: eda
+#       username: postgres
+#       password: example
+#       sslmode: prefer
+#       type: unmanaged
