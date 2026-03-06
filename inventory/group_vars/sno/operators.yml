@@ -8,13 +8,6 @@ operatorgroups:
         - aap-bowser
 
   - metadata:
-      name: ansible-automation-platform-operator-25
-      namespace: aap-25-operator
-    spec:
-      targetNamespaces:
-        - aap-luigi
-
-  - metadata:
       name: ansible-automation-platform-operator-26
       namespace: aap-26-operator
     spec:
@@ -27,12 +20,6 @@ subscriptions:
       namespace: aap-24-operator
     spec:
       channel: stable-2.4-cluster-scoped
-
-  - metadata:
-      name: ansible-automation-platform-operator-25
-      namespace: aap-25-operator
-    spec:
-      channel: stable-2.5-cluster-scoped
 
   - metadata:
       name: ansible-automation-platform-operator-26
