@@ -52,20 +52,6 @@ pvcs:
           storage: 5Gi
 
 ######
-# Routes
-######
-
-routes:
-  - metadata:
-      name: "{{ name_controller }}-custom-route"
-    spec:
-      host: mycustomroute.escwq.xyz
-      to:
-        kind: Service
-        name: "{{ name_controller }}-service"
-        weight: 98
-
-######
 # Secrets
 ######
 
@@ -73,7 +59,7 @@ secrets:
   - metadata:
       name: "{{ name_gateway }}-admin-password"
     data:
-      password: foobar
+      password: jinja_gateway_admin_password
 
   - metadata:
       name: "{{ name_controller }}-secret-key"
