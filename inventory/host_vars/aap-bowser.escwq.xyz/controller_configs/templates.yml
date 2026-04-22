@@ -8,3 +8,47 @@ controller_templates:
     job_slice_count: 9
     playbook: playbooks/ping.yml
     project: aap-operator-automation
+
+  - name: Ping hosts 2
+    allow_simultaneous: true
+    credentials:
+      - Linode machine
+    inventory: linode-hosts
+    job_slice_count: 9
+    playbook: playbooks/ping.yml
+    project: aap-operator-automation
+
+  - name: Ping hosts 3
+    allow_simultaneous: true
+    credentials:
+      - Linode machine
+    inventory: linode-hosts
+    job_slice_count: 9
+    playbook: playbooks/ping.yml
+    project: aap-operator-automation
+
+  - name: 'aap.platform_on_ocp: aap-mario.escwq.xyz deploy'
+    credentials:
+      - aap - sno.escwq.xyz - database
+      - aap - sno.escwq.xyz - gateway
+      - aap - sno.escwq.xyz - ldap
+      - aap - sno.escwq.xyz - ssl
+      - k8s - sno.escwq.xyz
+    inventory: hosts.ini
+    limit: aap-mario.escwq.xyz
+    playbook: playbooks/manage_kubemanifests.yml
+    project: aap-operator-automation
+
+  - name: 'aap.platform_on_ocp: aap-mario.escwq.xyz delete'
+    credentials:
+      - aap - sno.escwq.xyz - database
+      - aap - sno.escwq.xyz - gateway
+      - aap - sno.escwq.xyz - ldap
+      - aap - sno.escwq.xyz - ssl
+      - k8s - sno.escwq.xyz
+    extra_vars:
+      manage_kubemanifests_state: absent
+    inventory: hosts.ini
+    limit: aap-mario.escwq.xyz
+    playbook: playbooks/manage_kubemanifests.yml
+    project: aap-operator-automation

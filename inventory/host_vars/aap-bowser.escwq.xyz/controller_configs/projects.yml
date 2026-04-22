@@ -2,6 +2,7 @@
 controller_projects:
   - name: aap-operator-automation
     organization: Default
-    scm_type: git
-    scm_url: https://github.com/homeski/aap-operator-automation.git
     scm_branch: main
+    scm_type: git
+    scm_update_on_launch: false
+    scm_url: https://github.com/homeski/aap-operator-automation.git

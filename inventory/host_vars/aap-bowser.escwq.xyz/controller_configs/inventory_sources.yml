@@ -7,3 +7,4 @@ controller_inventory_sources:
     source_path: inventory/hosts.ini
     overwrite: true
     overwrite_vars: true
+    update_on_launch: true
