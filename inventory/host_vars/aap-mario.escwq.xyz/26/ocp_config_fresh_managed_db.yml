@@ -17,9 +17,18 @@ manage_kubemanifests_validate_certs: false
 ansibleautomationplatform:
   spec:
     admin_password_secret: "{{ name_gateway }}-admin-password"
+    api:
+      replicas: 5
     database:
       postgres_storage_class: lvms-vg1
     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
+    extra_settings:
+      - setting: 'LOGGING[''loggers''][''aap''][''level'']'
+        value: DEBUG
+      - setting: 'LOGGING[''loggers''][''ansible_base''][''level'']'
+        value: DEBUG
+      - setting: 'LOGGING[''loggers''][''django_auth_ldap''][''level'']'
+        value: DEBUG
     route_host: mario-aap.escwq.xyz
     controller:
       disabled: false
@@ -27,17 +36,14 @@ ansibleautomationplatform:
       projects_existing_claim: "{{ name_controller }}-pvc-projects"
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
-      project_storage_class: lvms-vg1
     hub:
-      disabled: true
+      disabled: false
       name: "{{ name_hub }}"
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
     eda:
       disabled: true
       name: "{{ name_eda }}"
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
-      ingress_type: Route
-      service_type: ClusterIP
 
 ######
 # PVCs

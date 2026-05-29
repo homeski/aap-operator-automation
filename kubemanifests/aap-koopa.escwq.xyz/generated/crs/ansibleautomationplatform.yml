@@ -1,12 +1,9 @@
 apiVersion: aap.ansible.com/v1alpha1
 kind: AnsibleAutomationPlatform
 metadata:
-  name: mario-gateway
-  namespace: aap-mario
+  name: koopa-gateway
+  namespace: aap-koopa
 spec:
-  admin_password_secret: mario-gateway-admin-password
-  api:
-    replicas: 5
   controller:
     admin_user: admin
     auto_upgrade: true
@@ -23,7 +20,6 @@ spec:
     metrics_utility_cronjob_report_schedule: '@monthly'
     metrics_utility_enabled: false
     metrics_utility_pvc_claim_size: 5Gi
-    name: mario-controller
     no_log: true
     postgres_keepalives: true
     postgres_keepalives_count: 5
@@ -31,38 +27,24 @@ spec:
     postgres_keepalives_interval: 5
     postgres_storage_class: lvms-vg1
     project_storage_class: lvms-vg1
-    projects_existing_claim: mario-controller-pvc-projects
     projects_persistence: false
     projects_storage_access_mode: ReadWriteMany
     projects_storage_size: 8Gi
     replicas: 1
-    route_host: mario-controller.escwq.xyz
     route_tls_termination_mechanism: Edge
-    secret_key_secret: mario-controller-secret-key
     set_self_labels: true
     task_privileged: false
   database:
     postgres_storage_class: lvms-vg1
-  db_fields_encryption_secret: mario-gateway-encryption-secret
   eda:
     admin_user: admin
-    db_fields_encryption_secret: mario-eda-encryption-secret
     disabled: true
     image_pull_policy: IfNotPresent
     ingress_type: Route
-    name: mario-eda
     no_log: true
     service_type: ClusterIP
-  extra_settings:
-  - setting: LOGGING['loggers']['aap']['level']
-    value: DEBUG
-  - setting: LOGGING['loggers']['ansible_base']['level']
-    value: DEBUG
-  - setting: LOGGING['loggers']['django_auth_ldap']['level']
-    value: DEBUG
   hub:
-    db_fields_encryption_secret: mario-hub-encryption-secret
-    disabled: false
+    disabled: true
     file_storage_access_mode: ReadWriteOnce
     file_storage_size: 5Gi
     file_storage_storage_class: lvms-vg1
@@ -73,7 +55,6 @@ spec:
     ingress_type: Route
     loadbalancer_port: 80
     loadbalancer_protocol: http
-    name: mario-hub
     nginx_client_max_body_size: 10m
     nginx_proxy_connect_timeout: 120s
     nginx_proxy_read_timeout: 120s
@@ -84,4 +65,4 @@ spec:
     route_tls_termination_mechanism: Edge
     storage_type: File
   no_log: true
-  route_host: mario-aap.escwq.xyz
+  route_host: koopa-aap.escwq.xyz

@@ -14,6 +14,13 @@ operatorgroups:
       targetNamespaces:
         - aap-mario
 
+  - metadata:
+      name: ansible-automation-platform-operator-27
+      namespace: aap-27-operator
+    spec:
+      targetNamespaces:
+        - aap-koopa
+
 subscriptions:
   - metadata:
       name: ansible-automation-platform-operator-24
@@ -26,3 +33,9 @@ subscriptions:
       namespace: aap-26-operator
     spec:
       channel: stable-2.6-cluster-scoped
+
+  - metadata:
+      name: ansible-automation-platform-operator-27
+      namespace: aap-27-operator
+    spec:
+      channel: stable-2.7-cluster-scoped
