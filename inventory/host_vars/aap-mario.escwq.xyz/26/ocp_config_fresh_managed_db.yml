@@ -18,9 +18,7 @@ ansibleautomationplatform:
   spec:
     admin_password_secret: "{{ name_gateway }}-admin-password"
     api:
-      replicas: 5
-    database:
-      postgres_storage_class: lvms-vg1
+      replicas: 2
     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
     extra_settings:
       - setting: 'LOGGING[''loggers''][''aap''][''level'']'
@@ -29,7 +27,6 @@ ansibleautomationplatform:
         value: DEBUG
       - setting: 'LOGGING[''loggers''][''django_auth_ldap''][''level'']'
         value: DEBUG
-    route_host: mario-aap.escwq.xyz
     controller:
       disabled: false
       name: "{{ name_controller }}"
@@ -37,13 +34,15 @@ ansibleautomationplatform:
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
     hub:
-      disabled: false
+      disabled: true
       name: "{{ name_hub }}"
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
     eda:
       disabled: true
       name: "{{ name_eda }}"
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
+    # route_annotations: 'haproxy.router.openshift.io/timeout: 60s'
+    route_host: mario-aap.escwq.xyz
 
 ######
 # PVCs

@@ -6,7 +6,7 @@ metadata:
 spec:
   admin_password_secret: mario-gateway-admin-password
   api:
-    replicas: 5
+    replicas: 2
   controller:
     admin_user: admin
     auto_upgrade: true
@@ -62,7 +62,7 @@ spec:
     value: DEBUG
   hub:
     db_fields_encryption_secret: mario-hub-encryption-secret
-    disabled: false
+    disabled: true
     file_storage_access_mode: ReadWriteOnce
     file_storage_size: 5Gi
     file_storage_storage_class: lvms-vg1
