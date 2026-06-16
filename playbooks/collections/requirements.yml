@@ -9,6 +9,7 @@ collections:
   - name: ansible.eda
   - name: ansible.hub
   - name: ansible.platform
+    version: '<2.7.0'
   - name: infra.aap_configuration
   - name: infra.controller_configuration
   - name: kubernetes.core

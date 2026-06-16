@@ -2,3 +2,4 @@
 aap_organizations:
   - name: Default
   - name: OtherOrg
+  - name: foobar
