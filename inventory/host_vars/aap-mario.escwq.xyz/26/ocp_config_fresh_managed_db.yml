@@ -23,9 +23,19 @@ ansibleautomationplatform:
     extra_settings:
       - setting: 'LOGGING[''loggers''][''aap''][''level'']'
         value: DEBUG
+      - setting: 'LOGGING[''loggers''][''aap.auth_audit''][''level'']'
+        value: DEBUG
       - setting: 'LOGGING[''loggers''][''ansible_base''][''level'']'
         value: DEBUG
+      - setting: 'LOGGING[''loggers''][''django''][''level'']'
+        value: DEBUG
       - setting: 'LOGGING[''loggers''][''django_auth_ldap''][''level'']'
+        value: DEBUG
+      - setting: 'LOGGING[''loggers''][''django.request''][''level'']'
+        value: DEBUG
+      - setting: 'LOGGING[''loggers''][''py.warnings''][''level'']'
+        value: DEBUG
+      - setting: 'LOGGING[''loggers''][''rest_framework.request''][''level'']'
         value: DEBUG
     controller:
       disabled: false
