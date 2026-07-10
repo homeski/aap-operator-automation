@@ -1,0 +1,2 @@
+---
+generate_kubemanifests_template_file_ansibleautomationplatform: "{{ inventory_dir  }}/templates/ansibleautomationplatform.yml.j2"

@@ -1,23 +1,27 @@
+---
 apiVersion: aap.ansible.com/v1alpha1
 kind: AnsibleAutomationPlatform
 metadata:
-  name: koopa-gateway
-  namespace: aap-koopa
+  name: {{ name_gateway }}
+  namespace: {{ ocp_namespace }}
 spec:
+  no_log: true
+
+  database:
+    postgres_storage_class: lvms-vg1
+
   controller:
-    disabled: false
+    disabled: true
     no_log: true
     postgres_storage_class: lvms-vg1
     project_storage_class: lvms-vg1
-  database:
-    postgres_storage_class: lvms-vg1
+
   eda:
     disabled: true
+
   hub:
     disabled: true
     file_storage_storage_class: lvms-vg1
     no_log: true
     postgres_storage_class: lvms-vg1
     redis_storage_class: lvms-vg1
-  no_log: true
-  route_host: koopa-aap.escwq.xyz

@@ -51,7 +51,9 @@ ansibleautomationplatform:
       disabled: true
       name: "{{ name_eda }}"
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
-    # route_annotations: 'haproxy.router.openshift.io/timeout: 60s'
+    route_annotations: |
+      haproxy.router.openshift.io/balance: roundrobin
+      haproxy.router.openshift.io/timeout: 300s
     route_host: mario-aap.escwq.xyz
 
 ######
