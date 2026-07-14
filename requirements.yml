@@ -1,5 +1,0 @@
----
-collections:
-  - version: main
-    type: git
-    name: https://github.com/homeski/ansible-collection-aap-platform-on-ocp.git
