@@ -1,11 +1,10 @@
+---
 apiVersion: automationcontroller.ansible.com/v1beta1
 kind: AutomationController
 metadata:
-  name: bowser-controller
-  namespace: aap-bowser
+  name: {{ name_controller }}
+  namespace: {{ ocp_namespace }}
 spec:
-  admin_password_secret: bowser-controller-admin-password
   no_log: true
   postgres_storage_class: lvms-vg1
   projects_storage_class: lvms-vg1
-  route_host: bowser-controller.escwq.xyz
