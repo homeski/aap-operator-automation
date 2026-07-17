@@ -16,6 +16,12 @@ manage_kubemanifests_validate_certs: false
 
 ansibleautomationplatform:
   spec:
+    extra_settings:
+      - setting: RUNTIME_FEATURE_FLAGS
+        value: 'True'
+    feature_flags:
+      FEATURE_DASHBOARD_COLLECTION_ENABLED: True
+      FEATURE_POLICY_AS_CODE_ENABLED: True
     route_host: koopa-aap.escwq.xyz
     controller:
       disabled: false
@@ -23,3 +29,8 @@ ansibleautomationplatform:
       disabled: true
     eda:
       disabled: true
+    metrics:
+      disabled: false
+      extra_settings:
+        - setting: METRICS_SERVICE_MODE
+          value: 'development'
