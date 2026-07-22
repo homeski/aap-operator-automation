@@ -20,8 +20,8 @@ ansibleautomationplatform:
       - setting: RUNTIME_FEATURE_FLAGS
         value: 'True'
     feature_flags:
-      FEATURE_DASHBOARD_COLLECTION_ENABLED: True
-      FEATURE_POLICY_AS_CODE_ENABLED: True
+      FEATURE_DASHBOARD_COLLECTION_ENABLED: true
+      FEATURE_POLICY_AS_CODE_ENABLED: true
     route_host: koopa-aap.escwq.xyz
     controller:
       disabled: false

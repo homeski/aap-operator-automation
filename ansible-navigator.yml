@@ -4,21 +4,23 @@ ansible-navigator:
     inventory:
       entries:
         - ./inventory/hosts.ini
-
   execution-environment:
-    image: registry.redhat.io/ansible-automation-platform-25/ee-supported-rhel8:latest
+    environment-variables:
+      set:
+        KUBECONFIG: "/usr/share/.kube/config"
+    image: registry.redhat.io/ansible-automation-platform-27/ee-supported-rhel9
     pull:
       policy: missing
     volume-mounts:
       - dest: /usr/share/ansible/collections
-        src: ~/.ansible/collections
+        src: "${HOME}/.ansible/collections"
         options: Z
-
+      - dest: /usr/share/.kube
+        src: "${HOME}/.kube"
+        options: "Z,ro"
   logging:
     file: /tmp/ansible-navigator.log
-
   mode: stdout
-
   playbook-artifact:
     enable: false
 ...
