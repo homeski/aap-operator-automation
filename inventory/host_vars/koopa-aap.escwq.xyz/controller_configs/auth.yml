@@ -1,0 +1,6 @@
+---
+controller_hostname: https://mario-controller.escwq.xyz
+controller_username: admin
+controller_password: foobar
+# aap_token: ""
+controller_validate_certs: false

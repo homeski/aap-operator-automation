@@ -1,0 +1,6 @@
+---
+collections:
+  - name: git+https://github.com/homeski/ansible-collection-aap-platform-on-ocp.git,main
+  - name: ansible.platform
+  - name: infra.aap_configuration
+  - name: kubernetes.core

@@ -1,3 +1,4 @@
 .ansible/
 .vault-secret
+builder/*/context
 playbooks/collections/ansible_collections

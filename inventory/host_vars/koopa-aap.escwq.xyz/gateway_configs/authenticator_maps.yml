@@ -1,0 +1,11 @@
+---
+gateway_authenticator_maps:
+  - name: Superuser Access
+    order: 1
+    authenticator: lldap
+    map_type: is_superuser
+    revoke: false
+    triggers:
+      groups:
+        has_and:
+          - cn=aap_admins,ou=groups,dc=example,dc=com

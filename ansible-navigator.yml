@@ -8,12 +8,12 @@ ansible-navigator:
     environment-variables:
       set:
         KUBECONFIG: "/usr/share/.kube/config"
-    image: registry.redhat.io/ansible-automation-platform-27/ee-supported-rhel9
+    image: localhost/ansible-execution-env:27
     pull:
       policy: missing
     volume-mounts:
-      - dest: /usr/share/ansible/collections
-        src: "${HOME}/.ansible/collections"
+      - dest: /usr/share/ansible/collections/ansible_collections/aap/platform_on_ocp
+        src: "${HOME}/.ansible/collections/ansible_collections/aap/platform_on_ocp"
         options: Z
       - dest: /usr/share/.kube
         src: "${HOME}/.kube"

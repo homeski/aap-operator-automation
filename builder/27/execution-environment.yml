@@ -1,0 +1,27 @@
+---
+version: 3
+
+dependencies:
+  galaxy: requirements.yml
+  python: requirements.txt
+  python_interpreter:
+    package_system: python312
+    python_path: /usr/bin/python3.12
+  system:
+    - systemd-devel [platform:rpm]
+    - python3.12-devel [platform:rpm]
+
+images:
+  base_image:
+    name: registry.redhat.io/ansible-automation-platform-27/ee-minimal-rhel9:2.20
+
+options:
+  package_manager_path: /usr/bin/microdnf
+
+additional_build_files:
+  - src: ../ansible.cfg
+    dest: configs
+
+additional_build_steps:
+  prepend_galaxy:
+    - COPY _build/configs/ansible.cfg /etc/ansible/ansible.cfg
