@@ -25,6 +25,15 @@ spec:
     no_log: true
     postgres_storage_class: lvms-vg1
     redis_storage_class: lvms-vg1
+  mcp:
+    allow_write_operations: true
+    bundle_cacert_secret: koopa-gateway-mcp-ca-bundle
+    disabled: false
+    extra_settings:
+    - setting: IGNORE_CERTIFICATE_ERRORS
+      value: true
+    route_host: koopa-mcp.escwq.xyz
+    route_tls_secret: koopa-gateway-mcp-route-tls
   metrics:
     disabled: false
     extra_settings:

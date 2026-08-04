@@ -29,8 +29,30 @@ ansibleautomationplatform:
       disabled: true
     eda:
       disabled: true
+    mcp:
+      disabled: false
+      allow_write_operations: true
+      bundle_cacert_secret: "{{ name_gateway }}-mcp-ca-bundle"
+      extra_settings:
+        - setting: IGNORE_CERTIFICATE_ERRORS
+          value: true
+      route_host: koopa-mcp.escwq.xyz
+      route_tls_secret: "{{ name_gateway }}-mcp-route-tls"
     metrics:
       disabled: false
       extra_settings:
         - setting: METRICS_SERVICE_MODE
           value: 'development'
+
+secrets:
+  - metadata:
+      name: "{{ name_gateway }}-mcp-route-tls"
+    data:
+      ca.crt: "{{ ca_crt }}"
+      tls.crt: "{{ tls_crt }}"
+      tls.key: jinja_tls_key
+
+  - metadata:
+      name: "{{ name_gateway }}-mcp-ca-bundle"
+    data:
+      bundle-ca.crt: "{{ ca_crt }}"
