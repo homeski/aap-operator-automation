@@ -30,6 +30,8 @@ automationcontroller:
     #   - name: {{ name_controller }}-rsyslog-volume
     #     mountPath: /var/lib/awx/rsyslog/conf.d/custom.conf
     #     subPath: rsyslog.conf
+    task_manage_replicas: false
+    web_manage_replicas: false
 
 # automationhub:
 #   spec:
@@ -81,21 +83,31 @@ hpas:
   - metadata:
       name: "{{ name_controller }}-task-hpa"
     spec:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 300
+        scaleUp:
+          stabilizationWindowSeconds: 60
+      maxReplicas: 3
+      minReplicas: 1
       scaleTargetRef:
         apiVersion: apps/v1
         kind: Deployment
         name: "{{ name_controller }}-task"
-      minReplicas: 1
-      maxReplicas: 3
       targetCPUUtilizationPercentage: 80
 
   - metadata:
       name: "{{ name_controller }}-web-hpa"
     spec:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: 300
+        scaleUp:
+          stabilizationWindowSeconds: 60
+      maxReplicas: 3
+      minReplicas: 1
       scaleTargetRef:
         apiVersion: apps/v1
         kind: Deployment
         name: "{{ name_controller }}-web"
-      minReplicas: 1
-      maxReplicas: 3
       targetCPUUtilizationPercentage: 80

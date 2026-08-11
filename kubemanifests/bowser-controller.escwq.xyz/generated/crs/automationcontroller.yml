@@ -9,3 +9,5 @@ spec:
   postgres_storage_class: lvms-vg1
   projects_storage_class: lvms-vg1
   route_host: bowser-controller.escwq.xyz
+  task_manage_replicas: false
+  web_manage_replicas: false
