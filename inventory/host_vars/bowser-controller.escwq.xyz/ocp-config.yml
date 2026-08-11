@@ -76,3 +76,26 @@ secrets:
 #     data:
 #       rsyslog.conf: |
 #         $MaxMessageSize 2147483646
+
+hpas:
+  - metadata:
+      name: "{{ name_controller }}-task-hpa"
+    spec:
+      scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: "{{ name_controller }}-task"
+      minReplicas: 1
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 80
+
+  - metadata:
+      name: "{{ name_controller }}-web-hpa"
+    spec:
+      scaleTargetRef:
+        apiVersion: apps/v1
+        kind: Deployment
+        name: "{{ name_controller }}-web"
+      minReplicas: 1
+      maxReplicas: 3
+      targetCPUUtilizationPercentage: 80
