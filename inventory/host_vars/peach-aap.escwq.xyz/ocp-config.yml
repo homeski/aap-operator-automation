@@ -1,0 +1,23 @@
+---
+ocp_namespace: aap-peach
+name_gateway: peach-gateway
+name_controller: peach-controller
+name_eda:
+name_hub:
+manage_kubemanifests_validate_certs: false
+
+ansibleautomationplatform:
+  spec:
+    admin_password_secret: "{{ name_gateway }}-admin-password"
+    controller:
+      disabled: false
+      name: "{{ name_controller }}"
+      route_host: peach-controller.escwq.xyz
+    no_log: false
+    route_host: peach-aap.escwq.xyz
+
+secrets:
+  - metadata:
+      name: "{{ name_gateway }}-admin-password"
+    data:
+      password: foobar

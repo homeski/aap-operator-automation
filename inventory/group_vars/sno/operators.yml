@@ -13,6 +13,7 @@ operatorgroups:
     spec:
       targetNamespaces:
         - aap-mario
+        - aap-peach
 
   - metadata:
       name: ansible-automation-platform-operator-27

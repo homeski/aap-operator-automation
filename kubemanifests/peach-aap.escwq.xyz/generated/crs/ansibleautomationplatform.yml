@@ -1,0 +1,26 @@
+apiVersion: aap.ansible.com/v1alpha1
+kind: AnsibleAutomationPlatform
+metadata:
+  name: peach-gateway
+  namespace: aap-peach
+spec:
+  admin_password_secret: peach-gateway-admin-password
+  controller:
+    disabled: false
+    name: peach-controller
+    no_log: true
+    postgres_storage_class: lvms-vg1
+    project_storage_class: lvms-vg1
+    route_host: peach-controller.escwq.xyz
+  database:
+    postgres_storage_class: lvms-vg1
+  eda:
+    disabled: true
+  hub:
+    disabled: true
+    file_storage_storage_class: lvms-vg1
+    no_log: true
+    postgres_storage_class: lvms-vg1
+    redis_storage_class: lvms-vg1
+  no_log: false
+  route_host: peach-aap.escwq.xyz

@@ -6,3 +6,4 @@ metadata:
 spec:
   targetNamespaces:
   - aap-mario
+  - aap-peach
