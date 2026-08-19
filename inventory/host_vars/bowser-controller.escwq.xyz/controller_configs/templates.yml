@@ -35,7 +35,7 @@ controller_templates:
       - aap - sno.escwq.xyz - ssl
       - k8s - sno.escwq.xyz
     inventory: hosts.ini
-    limit: aap-mario.escwq.xyz
+    limit: mario-aap.escwq.xyz
     playbook: playbooks/manage_kubemanifests.yml
     project: aap-operator-automation
 
@@ -49,6 +49,6 @@ controller_templates:
     extra_vars:
       manage_kubemanifests_state: absent
     inventory: hosts.ini
-    limit: aap-mario.escwq.xyz
+    limit: mario-aap.escwq.xyz
     playbook: playbooks/manage_kubemanifests.yml
     project: aap-operator-automation
