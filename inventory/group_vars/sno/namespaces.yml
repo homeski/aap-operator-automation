@@ -1,0 +1,11 @@
+---
+namespaces:
+  - aap-24-operator
+  - aap-26-operator
+  - aap-27-operator
+  - aap-bowser
+  - aap-koopa
+  - aap-mario
+  - aap-orchestrator
+  - aap-peach
+  - aap-portal
