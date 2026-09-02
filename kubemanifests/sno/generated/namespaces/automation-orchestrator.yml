@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: aap-orchestrator
+  name: automation-orchestrator
 spec:
   finalizers:
   - kubernetes

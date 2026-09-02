@@ -8,7 +8,6 @@ name_gateway: koopa-gateway
 name_controller: koopa-controller
 name_eda: koopa-eda
 name_hub: koopa-hub
-manage_kubemanifests_validate_certs: false
 
 ######
 # CRs

@@ -1,0 +1,21 @@
+apiVersion: aap.ansible.com/v1alpha1
+kind: AutomationOrchestrator
+metadata:
+  name: koopa-ao
+  namespace: automation-orchestrator
+spec:
+  ingress:
+    host: koopa-ao.escwq.xyz
+  postgres:
+    backendDatabase:
+      secretRef:
+        name: koopa-ao-orchestrator-pg-credentials
+    host: 192.168.1.58
+    port: 5415
+    sslMode: prefer
+    temporalDatabase:
+      secretRef:
+        name: koopa-ao-temporal-pg-credentials
+  secrets:
+    initialAdminPasswordSecretRef:
+      name: koopa-ao-admin-password

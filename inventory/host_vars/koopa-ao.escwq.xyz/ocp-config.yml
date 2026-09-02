@@ -1,0 +1,40 @@
+---
+name_orchestrator: koopa-ao
+ocp_namespace: automation-orchestrator
+
+automationorchestrator:
+  spec:
+    ingress:
+      host: koopa-ao.escwq.xyz
+    postgres:
+      host: 192.168.1.58
+      port: 5415
+      backendDatabase:
+        secretRef:
+          name: "{{ name_orchestrator }}-orchestrator-pg-credentials"
+      temporalDatabase:
+        secretRef:
+          name: "{{ name_orchestrator }}-temporal-pg-credentials"
+    secrets:
+      initialAdminPasswordSecretRef:
+        name: "{{ name_orchestrator }}-admin-password"
+
+secrets:
+  - metadata:
+      name: "{{ name_orchestrator }}-admin-password"
+    data:
+      password: foobar
+
+  - metadata:
+      name: "{{ name_orchestrator }}-orchestrator-pg-credentials"
+    data:
+      database: orchestrator
+      username: postgres
+      password: foobar
+
+  - metadata:
+      name: "{{ name_orchestrator }}-temporal-pg-credentials"
+    data:
+      database: temporal
+      username: postgres
+      password: foobar

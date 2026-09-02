@@ -8,7 +8,6 @@ name_gateway: mario-gateway
 name_controller: mario-controller
 name_eda: mario-eda
 name_hub: mario-hub
-manage_kubemanifests_validate_certs: false
 
 ######
 # CRs

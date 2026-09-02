@@ -6,6 +6,6 @@ namespaces:
   - aap-bowser
   - aap-koopa
   - aap-mario
-  - aap-orchestrator
   - aap-peach
   - aap-portal
+  - automation-orchestrator

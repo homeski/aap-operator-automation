@@ -8,7 +8,6 @@
 # name_controller: mario-controller
 # name_eda:
 # name_hub:
-# manage_kubemanifests_validate_certs: false
 
 # ######
 # # CRs

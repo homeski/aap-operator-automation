@@ -4,7 +4,6 @@ name_gateway: peach-gateway
 name_controller: peach-controller
 name_eda:
 name_hub:
-manage_kubemanifests_validate_certs: false
 
 ansibleautomationplatform:
   spec:
