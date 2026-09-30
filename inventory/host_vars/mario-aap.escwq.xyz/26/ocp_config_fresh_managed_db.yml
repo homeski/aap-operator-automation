@@ -43,7 +43,7 @@ ansibleautomationplatform:
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
     hub:
-      disabled: true
+      disabled: false
       name: "{{ name_hub }}"
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
     eda:

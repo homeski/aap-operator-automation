@@ -1,6 +1,6 @@
 ---
-name_orchestrator: koopa-ao
 ocp_namespace: automation-orchestrator
+name_orchestrator: koopa-ao
 
 automationorchestrator:
   spec:
