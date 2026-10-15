@@ -44,6 +44,8 @@ subscriptions:
       namespace: aap-27-operator
     spec:
       channel: stable-2.7-cluster-scoped
+      # Working pre-networkpolicies version
+      startingCSV: aap-operator.v2.7.0-0.1785438991
 
   - metadata:
       name: automation-orchestrator-operator
