@@ -25,7 +25,8 @@ ansibleautomationplatform:
     controller:
       disabled: false
     hub:
-      disabled: true
+      disabled: false
+      name: "{{ name_hub }}"
     eda:
       disabled: true
     mcp:

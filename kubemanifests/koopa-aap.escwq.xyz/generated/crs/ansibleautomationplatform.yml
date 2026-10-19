@@ -20,9 +20,10 @@ spec:
     FEATURE_DASHBOARD_COLLECTION_ENABLED: true
     FEATURE_POLICY_AS_CODE_ENABLED: true
   hub:
-    disabled: true
+    disabled: false
     file_storage_access_mode: ReadWriteOnce
     file_storage_storage_class: lvms-vg1
+    name: koopa-hub
     no_log: true
     postgres_storage_class: lvms-vg1
     redis_storage_class: lvms-vg1

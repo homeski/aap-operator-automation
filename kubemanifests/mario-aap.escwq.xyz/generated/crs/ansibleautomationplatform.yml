@@ -6,7 +6,7 @@ metadata:
 spec:
   admin_password_secret: mario-gateway-admin-password
   api:
-    replicas: 2
+    replicas: 1
   controller:
     disabled: false
     name: mario-controller
@@ -14,6 +14,7 @@ spec:
     postgres_storage_class: lvms-vg1
     project_storage_class: lvms-vg1
     projects_existing_claim: mario-controller-pvc-projects
+    replicas: 1
     route_host: mario-controller.escwq.xyz
     secret_key_secret: mario-controller-secret-key
   database:
@@ -21,7 +22,7 @@ spec:
   db_fields_encryption_secret: mario-gateway-encryption-secret
   eda:
     db_fields_encryption_secret: mario-eda-encryption-secret
-    disabled: true
+    disabled: false
     name: mario-eda
   extra_settings:
   - setting: LOGGING['loggers']['aap']['level']

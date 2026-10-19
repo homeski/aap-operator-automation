@@ -17,7 +17,7 @@ ansibleautomationplatform:
   spec:
     admin_password_secret: "{{ name_gateway }}-admin-password"
     api:
-      replicas: 2
+      replicas: 1
     db_fields_encryption_secret: "{{ name_gateway }}-encryption-secret"
     extra_settings:
       - setting: 'LOGGING[''loggers''][''aap''][''level'']'
@@ -40,6 +40,7 @@ ansibleautomationplatform:
       disabled: false
       name: "{{ name_controller }}"
       projects_existing_claim: "{{ name_controller }}-pvc-projects"
+      replicas: 1
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
     hub:
@@ -47,7 +48,7 @@ ansibleautomationplatform:
       name: "{{ name_hub }}"
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
     eda:
-      disabled: true
+      disabled: false
       name: "{{ name_eda }}"
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
     route_annotations: |
