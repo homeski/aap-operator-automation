@@ -14,6 +14,7 @@ spec:
     postgres_storage_class: lvms-vg1
     project_storage_class: lvms-vg1
     projects_existing_claim: mario-controller-pvc-projects
+    projects_persistence: true
     replicas: 1
     route_host: mario-controller.escwq.xyz
     secret_key_secret: mario-controller-secret-key

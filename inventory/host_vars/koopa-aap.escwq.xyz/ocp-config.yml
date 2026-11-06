@@ -15,12 +15,13 @@ name_hub: koopa-hub
 
 ansibleautomationplatform:
   spec:
-    extra_settings:
-      - setting: RUNTIME_FEATURE_FLAGS
-        value: 'True'
+    # extra_settings:
+    #   - setting: RUNTIME_FEATURE_FLAGS
+    #     value: 'True'
     feature_flags:
       FEATURE_DASHBOARD_COLLECTION_ENABLED: true
       FEATURE_POLICY_AS_CODE_ENABLED: true
+    no_log: true
     route_host: koopa-aap.escwq.xyz
     controller:
       disabled: false
@@ -39,7 +40,7 @@ ansibleautomationplatform:
       route_host: koopa-mcp.escwq.xyz
       route_tls_secret: "{{ name_gateway }}-mcp-route-tls"
     metrics:
-      disabled: false
+      disabled: true
       extra_settings:
         - setting: METRICS_SERVICE_MODE
           value: 'development'

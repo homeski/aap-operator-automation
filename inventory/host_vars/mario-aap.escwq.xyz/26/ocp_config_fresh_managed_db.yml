@@ -40,6 +40,7 @@ ansibleautomationplatform:
       disabled: false
       name: "{{ name_controller }}"
       projects_existing_claim: "{{ name_controller }}-pvc-projects"
+      projects_persistence: true
       replicas: 1
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"

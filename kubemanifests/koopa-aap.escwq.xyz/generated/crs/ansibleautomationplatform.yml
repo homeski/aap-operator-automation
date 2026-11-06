@@ -13,9 +13,6 @@ spec:
     postgres_storage_class: lvms-vg1
   eda:
     disabled: true
-  extra_settings:
-  - setting: RUNTIME_FEATURE_FLAGS
-    value: 'True'
   feature_flags:
     FEATURE_DASHBOARD_COLLECTION_ENABLED: true
     FEATURE_POLICY_AS_CODE_ENABLED: true
@@ -37,7 +34,7 @@ spec:
     route_host: koopa-mcp.escwq.xyz
     route_tls_secret: koopa-gateway-mcp-route-tls
   metrics:
-    disabled: false
+    disabled: true
     extra_settings:
     - setting: METRICS_SERVICE_MODE
       value: development
