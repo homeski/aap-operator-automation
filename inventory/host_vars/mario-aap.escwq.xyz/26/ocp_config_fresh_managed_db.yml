@@ -45,13 +45,25 @@ ansibleautomationplatform:
       route_host: mario-controller.escwq.xyz
       secret_key_secret: "{{ name_controller }}-secret-key"
     hub:
-      disabled: false
-      name: "{{ name_hub }}"
+      api:
+        replicas: 1
+      content:
+        replicas: 1
       db_fields_encryption_secret: "{{ name_hub }}-encryption-secret"
-    eda:
       disabled: false
-      name: "{{ name_eda }}"
+      gunicorn_api_workers: 1
+      gunicorn_content_workers: 1
+      name: "{{ name_hub }}"
+      worker:
+        replicas: 1
+    eda:
+      activation_worker:
+        replicas: 1
+      default_worker:
+        replicas: 1
+      disabled: false
       db_fields_encryption_secret: "{{ name_eda }}-encryption-secret"
+      name: "{{ name_eda }}"
     route_annotations: |
       haproxy.router.openshift.io/balance: roundrobin
       haproxy.router.openshift.io/timeout: 300s

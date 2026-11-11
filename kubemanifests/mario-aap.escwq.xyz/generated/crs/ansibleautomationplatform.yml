@@ -22,7 +22,11 @@ spec:
     postgres_storage_class: lvms-vg1
   db_fields_encryption_secret: mario-gateway-encryption-secret
   eda:
+    activation_worker:
+      replicas: 1
     db_fields_encryption_secret: mario-eda-encryption-secret
+    default_worker:
+      replicas: 1
     disabled: false
     name: mario-eda
   extra_settings:
@@ -43,14 +47,22 @@ spec:
   - setting: LOGGING['loggers']['rest_framework.request']['level']
     value: DEBUG
   hub:
+    api:
+      replicas: 1
+    content:
+      replicas: 1
     db_fields_encryption_secret: mario-hub-encryption-secret
     disabled: false
     file_storage_access_mode: ReadWriteOnce
     file_storage_storage_class: lvms-vg1
+    gunicorn_api_workers: 1
+    gunicorn_content_workers: 1
     name: mario-hub
     no_log: true
     postgres_storage_class: lvms-vg1
     redis_storage_class: lvms-vg1
+    worker:
+      replicas: 1
   no_log: true
   route_annotations: 'haproxy.router.openshift.io/balance: roundrobin
 
